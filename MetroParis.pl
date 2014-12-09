@@ -240,7 +240,15 @@ liga(trocadero, boissiere).
 /* linha 14 */
 
 
+/* linhas teste */
+
+liga(pont_de_neuilly,porte_dauphine ).
+
+liga(victor_hugo,boissiere).
+
+
 /* Linhas completas  */
+
 
 linha(1,[la_defense,esplanade_de_la_defense,pont_de_neuilly,les_sablons,neuilly_pte_maillot,charles_de_gaulle-etoile]).
 
@@ -250,15 +258,66 @@ linha(6,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
 
 
 
-/* linhas teste */
 
-liga(pont_de_neuilly,porte_dauphine ).
+/* --- Predicados Auxiliares --- */
 
-liga(victor_hugo,boissiere).
+/* --- Relacionado com datas */
+/* --- INICIO --- */
+get_ano(Ano):-
+	get_time(GT),
+	stamp_date_time(GT,Data,'UTC'),
+	arg(1,Data,Ano).
 
-/* --- 1- Permitir	a modelação da rede de metro, com indicação das linhas,
+get_mes(Mes):-
+	get_time(GT),
+	stamp_date_time(GT,Data,'UTC'),
+	arg(2,Data,Mes).
+
+get_dia(Dia):-
+	get_time(GT),
+	stamp_date_time(GT,Data,'UTC'),
+	arg(3,Data,Dia).
+
+get_hora(Hora):-
+	get_time(GT),
+	stamp_date_time(GT,Data,'UTC'),
+	arg(4,Data,Hora).
+
+get_minutos(Min):-
+	get_time(GT),
+	stamp_date_time(GT,Data,'UTC'),
+	arg(5,Data,Min).
+
+dia_da_semana(DiaSemana1):-
+	get_ano(Ano),
+	get_mes(Mes),
+	get_dia(Dia),
+	day_of_the_week(date(Ano,Mes,Dia),DiaSemana),
+	((DiaSemana == 1;DiaSemana == 2;DiaSemana == 3;DiaSemana == 4;DiaSemana == 5), DiaSemana1 = 'Util';
+	DiaSemana == 6, DiaSemana1 = 'Sabado';
+	DiaSemana == 7, DiaSemana1 = 'Domingo'),!.
+
+/* --- FIM --- */
+
+
+
+
+
+
+
+
+
+/* --- 1- Permitir a modelação da rede de metro, com indicação das linhas,
 estações, cruzamentos e direção. --- */
 
+/* Metendo o numero da linha e estação final indicara a ordem correcta das linhas */
+direcao(Num,EstacaoFim,LF):-
+	linha(Num,L),
+	direcao1(L,EstacaoFim,LF).
+
+direcao1([H|T],H,LF):-
+	reverse([H|T],LF),!.
+direcao1(L,_,L).
 
 
 
@@ -266,25 +325,4 @@ estações, cruzamentos e direção. --- */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* --- 2-Permitir a incorporação do conceito de horário de funcionamento, tempos de viagem entre estações e frequências, que podem variar de acordo com os atributos */
