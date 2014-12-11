@@ -288,7 +288,7 @@ get_minutos(Min):-
 	stamp_date_time(GT,Data,'UTC'),
 	arg(5,Data,Min).
 
-dia_da_semana(DiaSemana1):-
+get_dia_da_semana(DiaSemana1):-
 	get_ano(Ano),
 	get_mes(Mes),
 	get_dia(Dia),
@@ -297,6 +297,24 @@ dia_da_semana(DiaSemana1):-
 	DiaSemana == 6, DiaSemana1 = 'Sabado';
 	DiaSemana == 7, DiaSemana1 = 'Domingo'),!.
 
+get_dia_da_semana_Num(DiaSemana1):-
+	get_ano(Ano),
+	get_mes(Mes),
+	get_dia(Dia),
+	day_of_the_week(date(Ano,Mes,Dia),DiaSemana1).
+
+verificaLinhaAberta(Estado):-
+	get_hora(Hora),
+	get_minutos(Minutos),
+	get_dia_da_semana_Num(DiaSemana),
+        ((DiaSemana >= 1, DiaSemana < 5;DiaSemana = 7),
+	 (Hora >= 6, Hora =< 23; Hora = 0, Minutos =< 30),Estado = 'Aberto'),!;
+	Estado = 'Fechado'.
+
+verificaFuso(Estado):-
+	get_hora(Hora),
+	(Hora >= 6 , Hora < 18), Estado = 'Dia',!;
+	Estado = 'Noite'.
 /* --- FIM --- */
 
 
