@@ -307,16 +307,26 @@ verificaLinhaAberta(Estado):-
 	get_hora(Hora),
 	get_minutos(Minutos),
 	get_dia_da_semana_Num(DiaSemana),
-        ((DiaSemana >= 1, DiaSemana < 5;DiaSemana = 7),
-	 (Hora >= 6, Hora =< 23; Hora = 0, Minutos =< 30),Estado = 'Aberto'),!;
+        ((   DiaSemana > 0, DiaSemana < 5;DiaSemana = 7),
+	 (   Hora > 5, Hora =< 23; Hora = 0, Minutos =< 30),
+	 Estado = 'Aberto').
+verificaLinhaAberta(Estado):-
+	get_hora(Hora),
+	get_minutos(Minutos),
+	get_dia_da_semana_Num(DiaSemana),
+	((   DiaSemana > 4, DiaSemana < 7),
+	 (   Hora > 5, Hora =< 23; Hora < 2; Hora = 2, Minutos =<30),
+	 Estado = 'Aberto').
+verificaLinhaAberta(Estado):-
 	Estado = 'Fechado'.
+
 
 verificaFuso(Estado):-
 	get_hora(Hora),
 	(Hora >= 6 , Hora < 18), Estado = 'Dia',!;
 	Estado = 'Noite'.
 /* --- FIM --- */
-
+%
 
 
 
