@@ -192,21 +192,23 @@ estacao(trocadero).
 /* --- LIGAÇOES DIRETAS DAS LINHAS  --- */
 
 /* linha 1 */
-liga(la_defense,esplanade_de_la_defense).
+liga(la_defense,esplanade_de_la_defense,1).
 
-liga(esplanade_de_la_defense,pont_de_neuilly).
+liga(esplanade_de_la_defense,pont_de_neuilly,1).
 
-liga(pont_de_neuilly,les_sablons).
+liga(pont_de_neuilly,les_sablons,1).
 
-liga(les_sablons,neuilly_pte_maillot).
+liga(les_sablons,porte_maillot,1).
 
-liga(neuilly_pte_maillot,charles_de_gaulle-etoile).
+liga(porte_maillot,argentine,1).
+
+liga(argentine,charles_de_gaulle-etoile,1).
 
 /* linha 2 */
 
-liga(porte_dauphine,victor_hugo).
+liga(porte_dauphine,victor_hugo,1).
 
-liga(victor_hugo,charles_de_gaulle-etoile).
+liga(victor_hugo,charles_de_gaulle-etoile,1).
 
 /* linha 3 */
 
@@ -215,14 +217,11 @@ liga(victor_hugo,charles_de_gaulle-etoile).
 /* linha 5 */
 
 /* linha 6 */
-liga(charles_de_gaulle-etoile,kleber).
-liga(kleber,charles_de_gaulle-etoile).
+liga(charles_de_gaulle-etoile,kleber,1).
 
-liga(kleber,boissiere).
-liga(boissiere,kleber).
+liga(kleber,boissiere,1).
 
-liga(boissiere, trocadero).
-liga(trocadero, boissiere).
+liga(boissiere, trocadero,1).
 /* linha 7 */
 
 /* linha 8 */
@@ -242,9 +241,9 @@ liga(trocadero, boissiere).
 
 /* linhas teste */
 
-liga(pont_de_neuilly,porte_dauphine ).
+liga(pont_de_neuilly,porte_dauphine,1).
 
-liga(victor_hugo,boissiere).
+liga(victor_hugo,boissiere,1).
 
 
 /* Linhas completas  */
@@ -353,4 +352,35 @@ direcao1(L,_,L).
 
 
 
-/* --- 2-Permitir a incorporação do conceito de horário de funcionamento, tempos de viagem entre estações e frequências, que podem variar de acordo com os atributos */
+/* --- 2-Permitir a incorporação do conceito de horário de funcionamento, tempos de viagem entre estações e frequências, que podem variar de acordo com os atributos --- */
+
+
+
+/* --- 3-Dada a hora de comparência numa dada estação determinar o trajeto para chegar a outra estação de acordo com diferentes critérios:
+(II) Mais Rápido --- */
+
+caminho_mais_rapido(EstacaoInicial,EstacaoFinal,LR):-
+	estacao(EstacaoInicial),
+	estacao(EstacaoFinal),
+	findall(Y,(liga(EstacaoInicial,Y,_);liga(Y,EstacaoInicial,_)),LEstacaoDirectas),
+	cria_caminho([EstacaoInicial],LEstacaoDirectas,LC),
+	determina_caminho_curto(EstacaoFinal,LC,LR).
+
+
+cria_caminho(_,[],[]).
+cria_caminho(Estacoes,[Destino|Destinos],LR):-
+	member(Destino,Estacoes),
+	cria_caminho(Estacoes,Destinos,LR).
+cria_caminho(Estacoes,[Destino|Destinos],[[Destino|Estacoes]|LR]):-
+	cria_caminho(Estacoes,Destinos,LR).
+
+
+determina_caminho_curto(EstacaoDestino,[[EstacaoDestino|L]|_],R):-
+	reverse([EstacaoDestino|L],R).
+
+determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
+	findall(X,liga(Destino,X,_),LL),
+	cria_caminho([Destino|Destinos],LL,Lcaminho),
+	append(LR,Lcaminho,Lappend),
+	determina_caminho_curto(EstacaoDestino,Lappend,L).
+
