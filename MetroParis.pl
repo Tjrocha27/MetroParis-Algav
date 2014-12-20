@@ -9,7 +9,7 @@ Base de conhecimento não leva espacos no nome das estaçoes nem acentos
 */
 
 
-/* --- MENU --- */
+/* --- MENU Principal --- */
 
 menu:-  write(' *************** MENU **************** '),nl,
 	write(' *                                   * '),nl,
@@ -32,9 +32,11 @@ exeMenu(Op):- Op == 1, carregarBase, menu,!;
 	      Op == 0, true,!;
 	      menu,!.
 
-
+/* --- Caregar Base de Dados --- */
 carregarBase:-	consult('BaseConhecimento.pl').
 
+
+/* --- Hoarios do metro e afins --- */
 horarios:-get_ano(Ano),
 	  get_mes(Mes),
 	  get_dia(Dia),
@@ -42,6 +44,7 @@ horarios:-get_ano(Ano),
 	  write(Dia),write('/'),write(Mes),write('/'),write(Ano),write(', '),write(DS),nl,nl.
 
 
+/* --- Calcular os diferentes Caminhos --- */
 cacularTrajetos:-write(' ******** Calcular o meu Trajeto ******* '),nl,
 	         write(' *				       * '),nl,
 		 write(' * 1- Menos Trocas                     * '),nl,
@@ -70,11 +73,13 @@ maisRapido:- write('Insira a Sua estação Actual'),nl,
 
 
 
+/* --- Pontos de interesse e Visitas --- */
 
 pontosInteresse.
 
 
 planearVisitas.
+
 
 /* --- Predicados Auxiliares --- */
 
