@@ -189,7 +189,7 @@ determina_caminho_curto(EstacaoDestino,[[EstacaoDestino|L]|_],R):-
 	reverse([EstacaoDestino|L],R).
 
 determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
-	findall(X,liga(Destino,X,_),LL),
+	findall(X,(liga(Destino,X,_);liga(X,Destino,_)),LL),
 	cria_caminho([Destino|Destinos],LL,Lcaminho),
 	append(LR,Lcaminho,Lappend),
 	determina_caminho_curto(EstacaoDestino,Lappend,L).
