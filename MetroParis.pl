@@ -2,7 +2,6 @@
 Trabalho Realizado pelos alunos:
 Tiago Rocha Nº 1101175
 João Pinto Nº 1090589
-
 NOTA:
 Base de conhecimento não leva espacos no nome das estaçoes nem acentos
 
