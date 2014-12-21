@@ -323,6 +323,28 @@ liga(porte_dorleans,mairie_de_montrouge,1).
 
 /* linha 5 */
 
+liga(bobigny_pablo_picasso,bobigny_pantin_raymon_queneau1).
+liga(bobigny_pantin_raymon_queneau,eglise_de_pantin,1).
+liga(eglise_de_pantin,hoche,1).
+liga(hoche,porte_de_pantin,1).
+liga(porte_de_pantin,ourcq,1).
+liga(ourcq,laumiere,1).
+liga(laumiere,jaures,1).
+liga(jaures,stalingrad,1).
+liga(stalingrad,gare_du_nord,1).
+liga(gare_du_nord,gare_de_l'est,1).
+liga(gare_de_l'est,jacques_bonsergent,1).
+liga(jacques_bonsergent,republique,1).
+liga(republique,oberkampf,1).
+liga(oberkampf,richard_lenoir,1).
+liga(richard_lenoir,breguet_sabin,1).
+liga(breguet_sabin,bastille,1).
+liga(bastille,quai_de_la_rapee,1).
+liga(quai_de_la_rapee,gare_dausterlitz,1).
+liga(gare_dausterlitz,saint_marcel,1).
+liga(saint_marcel,campo_formio,1).
+liga(campo_formio,place_ditalie,1).
+
 /* linha 6 */
 liga(charles_de_gaulle-etoile,kleber,1).
 
