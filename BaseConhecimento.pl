@@ -294,6 +294,33 @@ liga(porte_de_bagnolet,gallieni,1).
 
 /* linha 4 */
 
+liga(porte_de_clignancourt,simplon,1).
+liga(simplon,marcadet_poissonniers,1).
+liga(marcadet_poissonniers,chateau_rouge,1).
+liga(chateau_rouge,barbes_rochechouart,1).
+liga(barbes_rochechouart,gare_du_nord,1).
+liga(gare_du_nord,gare_de_lest,1).
+liga(gare_de_lest,chateau_deau,1).
+liga(chateau_deau,strasbourg_saint_denis,1).
+liga(strasbourg_saint_denis,reaumur_sebastopol,1).
+liga(reaumur_sebastopol,etienne_marcel,1).
+liga(etienne_marcel,les_halles,1).
+liga(les_halles,chatelet,1).
+liga(chatelet,cite,1).
+liga(cite,saint_michel,1).
+liga(saint_michel,odeon,1).
+liga(odeon,saint_germain_des_pres,1).
+liga(saint_germain_des_pres,saint_sulpice,1).
+liga(saint_sulpice,saint_placide,1).
+liga(saint_placide,montparnasse_bienvenue,1).
+liga(montparnasse_bienvenue,vavin,1).
+liga(vavin,raspail,1).
+liga(raspail,denfert_rochereau,1).
+liga(denfert_rochereau,mouton_duvernet,1).
+liga(mouton_duvernet,alesia,1).
+liga(alesia,porte_dorleans,1).
+liga(porte_dorleans,mairie_de_montrouge,1).
+
 /* linha 5 */
 
 /* linha 6 */
