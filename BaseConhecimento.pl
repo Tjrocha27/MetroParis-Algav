@@ -267,6 +267,31 @@ liga(philippe_auguste,alexandre_dumas,1).
 
 /* linha 3 */
 
+liga(pont_de_levallois_becon,anatole_france,1).
+liga(anatole_france,louise_michel,1).
+liga(louise_michel,porte_de_champerret,1).
+liga(porte_de_champerret,pereire,1).
+liga(pereire,wagram,1).
+liga(wagram,malesherbes,1).
+liga(malesherbes,villiers,1).
+liga(villiers,europe,1).
+liga(europe,saint_lazare,1).
+liga(saint_lazare,havre_caumartin,1).
+liga(havre_caumartin,opera,1).
+liga(opera,quatre_septembre,1).
+liga(quatre_septembre,bourse,1).
+liga(bourse,sentier,1).
+liga(sentier,reaumur_sebastopol,1).
+liga(reaumur_sebastopol,arts_et_metiers,1).
+liga(arts_et_metiers,temple,1).
+liga(temple,republique,1).
+liga(republique,parmentier,1).
+liga(parmentier,rue_saint_maur,1).
+liga(rue_saint_maur,pere_lachaise,1).
+liga(pere_lachaise,gambetta,1).
+liga(gambetta,porte_de_bagnolet,).
+liga(porte_de_bagnolet,gallieni,1).
+
 /* linha 4 */
 
 /* linha 5 */
