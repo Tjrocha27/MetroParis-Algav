@@ -163,7 +163,7 @@ estacao(edgar_quinet).
 estacao(saint-jacques).
 estacao(glaciere).
 estacao(corvisart).
-estacao(place_d'italie).
+estacao(place_ditalie).
 estacao(nationale).
 estacao(chevaleret).
 estacao(quai_de_la_gare).
@@ -347,10 +347,33 @@ liga(campo_formio,place_ditalie,1).
 
 /* linha 6 */
 liga(charles_de_gaulle-etoile,kleber,1).
-
 liga(kleber,boissiere,1).
-
 liga(boissiere, trocadero,1).
+liga(trocadero,passy,1).
+liga(passy,bir-hakeim,1).
+liga(bir-hakeim,dupleix,1).
+liga(dupleix,la_motte-picquet_grenelle,1).
+liga(la_motte-picquet_grenelle,cambronne,1).
+liga(cambronne,sevres-lecourbe,1).
+liga(sevres-lecourbe,pasteur,1).
+liga(pasteur,montparnasse_bienvenue,1).
+liga(montparnasse_bienvenue,edgar_quinet,1).
+liga(edgar_quinet,raspail,1).
+liga(raspail,denfert_rochereau,1).
+liga(denfert_rochereau,saint-jacques,1).
+liga(saint-jacques,glaciere,1).
+liga(glaciere,corvisart,1).
+liga(corvisart,place_ditalie,1).
+liga(place_ditalie,nationale,1).
+liga(nationale,chevaleret,1).
+liga(chevaleret,quai_de_la_gare,1).
+liga(quai_de_la_gare,bercy,1).
+liga(bercy,dugommier,1).
+liga(dugommier,daumesnil,1).
+liga(daumesnil,bel-air,1).
+liga(bel-air,picpus,1).
+liga(picpus,nation,1).
+
 /* linha 7 */
 
 /* linha 8 */
