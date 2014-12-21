@@ -149,6 +149,30 @@ estacao(place_ditalie). % existe na linha 6,7
 estacao(kleber).
 estacao(boissiere).
 estacao(trocadero).
+estacao(passy).
+estacao(bir-hakeim).
+estacao(dupleix).
+estacao(la_motte-picquet_grenelle).
+estacao(cambronne).
+estacao(sevres-lecourbe).
+estacao(pasteur).
+%estacao(montparnasse_bienvenue). já existe na linha 4
+estacao(edgar_quinet).
+%estacao(raspail). já existe na linha 4
+%estacao(denfert_rochereau). já existe na linha 4
+estacao(saint-jacques).
+estacao(glaciere).
+estacao(corvisart).
+estacao(place_d'italie).
+estacao(nationale).
+estacao(chevaleret).
+estacao(quai_de_la_gare).
+estacao(bercy).
+estacao(dugommier).
+estacao(daumesnil).
+estacao(bel-air).
+estacao(picpus).
+%estacao(nation). já existe na linha 1,6,9
 
 
 /* --- Estaçoes da linha 7 --- */
