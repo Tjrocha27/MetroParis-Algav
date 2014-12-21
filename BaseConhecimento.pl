@@ -289,7 +289,7 @@ liga(republique,parmentier,1).
 liga(parmentier,rue_saint_maur,1).
 liga(rue_saint_maur,pere_lachaise,1).
 liga(pere_lachaise,gambetta,1).
-liga(gambetta,porte_de_bagnolet,).
+liga(gambetta,porte_de_bagnolet).
 liga(porte_de_bagnolet,gallieni,1).
 
 /* linha 4 */
@@ -332,8 +332,8 @@ liga(ourcq,laumiere,1).
 liga(laumiere,jaures,1).
 liga(jaures,stalingrad,1).
 liga(stalingrad,gare_du_nord,1).
-liga(gare_du_nord,gare_de_l'est,1).
-liga(gare_de_l'est,jacques_bonsergent,1).
+liga(gare_du_nord,gare_de_lest,1).
+liga(gare_de_lest,jacques_bonsergent,1).
 liga(jacques_bonsergent,republique,1).
 liga(republique,oberkampf,1).
 liga(oberkampf,richard_lenoir,1).
@@ -401,9 +401,9 @@ liga(victor_hugo,boissiere,1).
 /* Linhas completas  */
 
 
-linha(1,[la_defense,esplanade_de_la_defense,pont_de_neuilly,les_sablons,neuilly_pte_maillot,charles_de_gaulle-etoile]).
+linha(1,[la_defense,esplanade_de_la_defense,pont_de_neuilly,les_sablons,neuilly_pte_maillot,charles_de_gaulle-etoilegeorge_v,franklin_d_roosevelt,champs-elysees-clemenceau,concorde,tuileries,palais_royal_musee_du_louvre,louvre_rivoli,chatelet,hotel_de_ville,saint_paul,bastille,gare_de_lyon,reuilly_diderot,nation,porte_de_vincennes,saint_mande,berault,chateau_de_vincennes]).
+linha(2,[porte_dauphine,victor_hugo,charles_de_gaulle-etoile,ternes,courcelles,monceau,villiers,rome,place_de_clichy,blanche,pigalle,anvers,barbes_rochechouart,la_chapelle,stalingrad,jaures,colonel_fabien,belleville,couronnes,menilmontant,pere_lachaise,philippe_auguste,alexandre_dumas]).
 
-linha(2,[porte_dauphine,victor_hugo,charles_de_gaulle-etoile]).
 
 linha(6,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
 
