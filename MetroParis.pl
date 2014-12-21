@@ -40,7 +40,9 @@ horarios:-get_ano(Ano),
 	  get_mes(Mes),
 	  get_dia(Dia),
 	  get_dia_da_semana(DS),
-	  write(Dia),write('/'),write(Mes),write('/'),write(Ano),write(', '),write(DS),nl,nl.
+	  write(Dia),write('/'),write(Mes),write('/'),write(Ano),write(', '),write(DS),nl,
+	  verificaLinhaAberta(Estado),
+	  write('O metro encontra-se: '), write(Estado),nl.
 
 
 /* --- Calcular os diferentes Caminhos --- */
