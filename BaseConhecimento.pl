@@ -243,8 +243,27 @@ liga(berault,1).
 /* linha 2 */
 
 liga(porte_dauphine,victor_hugo,1).
-
 liga(victor_hugo,charles_de_gaulle-etoile,1).
+liga(charles_de_gaulle-etoile,ternes,1).
+liga(ternes,courcelles,1).
+liga(courcelles,monceau,1).
+liga(monceau,villiers,1).
+liga(villiers,rome,1).
+liga(rome,place_de_clichy,1).
+liga(place_de_clichy,blanche,1).
+liga(blanche,pigalle,1).
+liga(pigalle,anvers,1).
+liga(anvers,barbes_rochechouart,1).
+liga(barbes_rochechouart,la_chapelle,1).
+liga(la_chapelle,stalingrad,1).
+liga(stalingrad,jaures,1).
+liga(jaures,colonel_fabien,1).
+liga(colonel_fabien,belleville,1).
+liga(belleville,couronnes,1).
+liga(couronnes,menilmontant,1).
+liga(menilmontant,pere_lachaise,1).
+liga(pere_lachaise,philippe_auguste,1).
+liga(philippe_auguste,alexandre_dumas,1).
 
 /* linha 3 */
 
