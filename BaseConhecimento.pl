@@ -238,7 +238,7 @@ liga(reuilly_diderot,nation,1).
 liga(nation,porte_de_vincennes,1).
 liga(porte_de_vincennes,saint_mande,1).
 liga(saint_mande,berault,1).
-liga(berault,1).
+liga(berault,chateau_de_vincennes,1).
 
 /* linha 2 */
 
@@ -289,7 +289,7 @@ liga(republique,parmentier,1).
 liga(parmentier,rue_saint_maur,1).
 liga(rue_saint_maur,pere_lachaise,1).
 liga(pere_lachaise,gambetta,1).
-liga(gambetta,porte_de_bagnolet).
+liga(gambetta,porte_de_bagnolet,1).
 liga(porte_de_bagnolet,gallieni,1).
 
 /* linha 4 */
@@ -323,7 +323,7 @@ liga(porte_dorleans,mairie_de_montrouge,1).
 
 /* linha 5 */
 
-liga(bobigny_pablo_picasso,bobigny_pantin_raymon_queneau1).
+liga(bobigny_pablo_picasso,bobigny_pantin_raymon_queneau,1).
 liga(bobigny_pantin_raymon_queneau,eglise_de_pantin,1).
 liga(eglise_de_pantin,hoche,1).
 liga(hoche,porte_de_pantin,1).
