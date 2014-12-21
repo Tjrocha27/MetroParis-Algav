@@ -214,17 +214,31 @@ estacao(olympiades).
 /* --- LIGAÇOES DIRETAS DAS LINHAS  --- */
 
 /* linha 1 */
+
 liga(la_defense,esplanade_de_la_defense,1).
-
 liga(esplanade_de_la_defense,pont_de_neuilly,1).
-
 liga(pont_de_neuilly,les_sablons,1).
-
 liga(les_sablons,porte_maillot,1).
-
 liga(porte_maillot,argentine,1).
-
 liga(argentine,charles_de_gaulle-etoile,1).
+liga(charles_de_gaulle-etoile,george_v,1).
+liga(george_v,franklin_d_roosevelt,1).
+liga(franklin_d_roosevelt,champs-elysees-clemenceau,1).
+liga(champs-elysees-clemenceau,concorde,1).
+liga(concorde,tuileries,1).
+liga(tuileries,palais_royal_musee_du_louvre,1).
+liga(palais_royal_musee_du_louvre,louvre_rivoli,1).
+liga(louvre_rivoli,chatelet,1).
+liga(chatelet,hotel_de_ville,1).
+liga(hotel_de_ville,saint_paul,1).
+liga(saint_paul,bastille,1).
+liga(bastille,gare_de_lyon,1).
+liga(gare_de_lyon,reuilly_diderot,1).
+liga(reuilly_diderot,nation,1).
+liga(nation,porte_de_vincennes,1).
+liga(porte_de_vincennes,saint_mande,1).
+liga(saint_mande,berault,1).
+liga(berault,1).
 
 /* linha 2 */
 
