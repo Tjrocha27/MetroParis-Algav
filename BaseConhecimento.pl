@@ -197,7 +197,19 @@ estacao(olympiades).
 
 /* --- Estaçoes da linha 11--- */
 
-
+% estacao(chatelet). Já existe na linha 1,4,7,14 (Cruzamento)
+% estacao(hotel_de_ville). Já existe na linha 1 (Cruzamento)
+estacao(rambuteau).
+% estacao(arts_et_metiers). Já existe na linha 3 (Cruzamento)
+% estacao(republique). Já existe na linha 3,5,8,9 (Cruzamento)
+estacao(goncourt).
+% estacao(belleville). Já existe na linha 2 (Cruzamento)
+estacao(pyrenees).
+estacao(jourdain).
+% estacao(place_des_fetes). Já existe na linha 7bis (Cruzamento)
+estacao(telegraphe).
+% estacao(porte_des_lilas). Já existe na linha 3bis (Cruzamento)
+estacao(mairie_des_lilas).
 
 /* --- Estaçoes da linha 12 --- */
 
