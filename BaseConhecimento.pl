@@ -201,7 +201,35 @@ estacao(olympiades).
 
 /* --- Estaçoes da linha 12 --- */
 
-
+estacao(front_populaire).
+estacao(porte_de_la_chapelle).
+estacao(marx_dormoy).
+% estacao(marcadet_poissonniers). Já existe na linha 4 (Cruzamento)
+estacao(jules_joffrin).
+estacao(lamarck_caulaincourt).
+estacao(abesses).
+% estacao(pigalle).  Já existe na linha 2 (Cruzamento)
+estacao(saint_georges).
+estacao(notre_dame_de_lorette).
+estacao(trinite_d_estienne_d_orves).
+% estacao(saint_lazare). Já existe na linha 3,13,14 (Cruzamento)
+% estacao(madeleine). Já existe na linha 8,14 (Cruzamento)
+% estacao(concorde). Já existe na linha 1,8 (Cruzamento)
+estacao(assemblee_nationale).
+estacao(solferino).
+estacao(rue_du_bac).
+% estacao(sevres_babylone).  Já existe na linha 10 (Cruzamento)
+estacao(rennes).
+estacao(notre_dame_des_champs).
+% estacao(montparnasse_bienvenue). Já existe na linha 4,6,13 (Cruzamento)
+estacao(falguiere).
+% estacao(pasteur). Já existe na linha 6(Cruzamento)	
+estacao(volontaires).
+estacao(vaugirard).
+estacao(convention).
+estacao(porte_de_versailles).
+estacao(corentin_celton).
+estacao(mairie_d_issy).
 
 /* --- Estaçoes da linha 13 --- */
 
