@@ -193,6 +193,35 @@ estacao(olympiades).
 
 /* --- Estaçoes da linha 10 --- */
 
+estacao(boulogne_pont_de_saint_cloud).
+estacao(boulogne_jean_jaures).
+
+% direcao Gare d_austerlitz
+
+% estacao(michel_ange_molitor). Já existe na linha 9 (Cruzamento)
+estacao(chardon_lagache).
+estacao(mirabeau).
+estacao(javel_andre_citroen).
+estacao(charles_michels).
+estacao(avenue_emile_zola).
+% estacao(la_motte_picquet_grenelle). Já existe na linha 6,8 (Cruzamento)
+estacao(segur).
+estacao(duroc). % existe na linha 13 (Cruzamento)
+estacao(vaneau).
+estacao(sevres_babylone).
+estacao(mabillon).
+% estacao(odeon). Já existe na linha 4 (Cruzamento)
+estacao(cluny_la_sorbonne).
+estacao(maubert_mutualité).
+estacao(cardinal_lemoine).
+% estacao(jussieu). Já existe na linha 7 (Cruzamento)
+% estacao(gare_d_austerlitz). Já existe na linha 5 (Cruzamento)
+
+% direcao Boulogne pont de saint_cloud
+
+estacao(eglise_d_auteuil).
+% estacao(michel_ange_auteuil). Já existe na linha 9 (Cruzamento)
+estacao(porte_d_auteuil).
 
 
 /* --- Estaçoes da linha 11--- */
