@@ -209,7 +209,15 @@ estacao(olympiades).
 
 /* --- Estaçoes da linha 14 --- */
 
-
+% estacao(saint-lazare).	Já existe na linha 3,9,12,13 (Cruzamento)
+% estacao(madeleine). Já existe na linha 8,12 (Cruzamento)
+% estacao(pyramides). Já existe na linha 7 (Cruzamento)
+% estacao(chatelet). Já existe na linha 1,4,7,11 (Cruzamento)
+% estacao(gare_de_lyon). Já existe na linha 1 (Cruzamento)
+% estacao(bercy). Já existe na linha 6 (Cruzamento)
+estacao(cour_saint-emilion).
+estacao(bibliotheque_françois-mitterrand).
+estacao(olympiades).
 
 /* --- LIGAÇOES DIRETAS DAS LINHAS  --- */
 
