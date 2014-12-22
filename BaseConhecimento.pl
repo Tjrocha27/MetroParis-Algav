@@ -205,7 +205,45 @@ estacao(olympiades).
 
 /* --- Estaçoes da linha 13 --- */
 
+% ponto de partida 1
+estacao(saint_denis_universite).
+estacao(basilique_de_saint_denis).
+estacao(saint_denis_porte_de_paris).
+estacao(carrefour_pleyel).
+estacao(mairie_de_saint_ouen).
+estacao(garibaldi).
+estacao(porte_de_saint-ouen).
+estacao(guy_moquet).
 
+% ponto de partida 2
+
+estacao(asnieres_gennevilliers_les_courtilles).
+estacao(les_agnettes).
+estacao(gabriel_peri).
+estacao(mairie_de_clichy).
+estacao(porte_de_clichy).
+estacao(brochant).
+
+% uniao das duas linhas
+
+estacao(la_fourche).
+% estacao(place_de_clichy).	Já existe na linha 2 (Cruzamento)
+estacao(liege).	
+% estacao(saint_lazare). Já existe na linha 3,12,14 (Cruzamento)
+% estacao(miromesnil). Já existe na linha 9 (Cruzamento)
+% estacao(champs_elysees_clemenceau). Já existe na linha 1 (Cruzamento)
+% estacao(invalides).  Já existe na linha 8 (Cruzamento)
+estacao(varenne).
+estacao(saint_françois_xavier).
+% estacao(duroc). Já existe na linha 10 (Cruzamento) 
+% estacao(montparnasse_bienvenue). Já existe na linha 4,6,12 (Cruzamento)
+estacao(gaite).
+estacao(pernety).
+estacao(plaisance).
+estacao(porte_de_vanves).
+estacao(malakoff_plateau_de_vanves).
+estacao(malakoff_rue_etienne_Dolet).
+estacao(chatillon_montrouge).
 
 /* --- Estaçoes da linha 14 --- */
 
