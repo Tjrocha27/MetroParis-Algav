@@ -633,6 +633,41 @@ liga(picpus,nation,1).
 /* linha 12 */
 
 /* linha 13 */
+% ponto de partida 1
+liga(saint_denis_universite,basilique_de_saint_denis,1).
+liga(basilique_de_saint_denis,saint_denis_porte_de_paris,1).
+liga(saint_denis_porte_de_paris,carrefour_pleyel,1).
+liga(carrefour_pleyel,mairie_de_saint_ouen,1).
+liga(mairie_de_saint_ouen,garibaldi,1).
+liga(garibaldi,porte_de_saint,1).
+liga(porte_de_saint,guy_moquet,1).
+liga(guy_moquet,la_fourche,1).
+
+% ponto de partida 2
+liga(asnieres_gennevilliers_les_courtilles,les_agnettes,1).
+liga(les_agnettes,gabriel_peri,1).
+liga(gabriel_peri,mairie_de_clichy,1).
+liga(mairie_de_clichy,porte_de_clichy,1).
+liga(porte_de_clichy,brochant,1).
+
+% uniao das duas linhas
+liga(la_fourche,place_de_clichy,1).
+liga(place_de_clichy,liege,1).
+liga(liege,saint_lazare,1).
+liga(saint_lazare,miromesnil,1).
+liga(miromesnil,champs_elysees_clemenceau,1).
+liga(champs_elysees_clemenceau,invalides,1).
+liga(invalides,varenne,1).
+liga(varenne,saint_françois_xavier,1).
+liga(saint_françois_xavier,duroc,1).
+liga(duroc,montparnasse_bienvenue,1).
+liga(montparnasse_bienvenue,gaite,1).
+liga(gaite,pernety,1).
+liga(pernety,plaisance,1).
+liga(plaisance,porte_de_vanves,1).
+liga(porte_de_vanves,malakoff_plateau_de_vanves,1).
+liga(malakoff_plateau_de_vanves,malakoff_rue_etienne_Dolet,1).
+liga(malakoff_rue_etienne_Dolet,chatillon_montrouge,1).
 
 /* linha 14 */
 liga(saint_lazare,madeleine,1).
@@ -640,8 +675,9 @@ liga(madeleine,pyramides,1).
 liga(pyramides,chatelet,1).
 liga(chatelet,gare_de_lyon,1).
 liga(gare_de_lyon,bercy,1).
-liga(bercy,nation,1).
-liga(picpus,nation,1).
+liga(bercy,cour_saint_emilion,1).
+liga(cour_saint_emilion,bibliotheque_françois_mitterrand,1).
+liga(bibliotheque_françois_mitterrand,olympiades,1).
 
 /* linhas teste */
 
