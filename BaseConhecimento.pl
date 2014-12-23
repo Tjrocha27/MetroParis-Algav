@@ -624,6 +624,44 @@ liga(picpus,nation,1).
 
 /* linha 8 */
 
+liga(balard,lourmel,1).
+liga(lourmel,boucicaut,1).
+liga(boucicaut,felix_faure,1).
+liga(felix_faure,commerce,1).
+liga(commerce,la_motte_picquet_grenelle,1).
+liga(la_motte_picquet_grenelle,ecole_militaire,1).
+liga(ecole_militaire,la_tour_maubourg,1).
+liga(la_tour_maubourg,invalides,1).
+liga(invalides,concorde,1).
+liga(concorde,madeleine,1).
+liga(madeleine,opera,1).
+liga(opera,richelieu_drouot,1).
+liga(richelieu_drouot,grands_boulevards,1).
+liga(grands_boulevards,bonne_nouvelle,1).
+liga(bonne_nouvelle,strasbourg_saint_denis,1).
+liga(strasbourg_saint_denis,republique,1).
+liga(republique,filles_du_calvaire,1).
+liga(filles_du_calvaire,saint_sebastien_froissart,1).
+liga(saint_sebastien_froissart,chemin_vert,1).
+liga(chemin_vert,bastille,1).
+liga(bastille,ledru_rollin,1).
+liga(ledru_rollin,faidherbe_chaligny,1).
+liga(faidherbe_chaligny,reuilly_diderot,1).
+liga(reuilly_diderot,montgallet,1).
+liga(montgallet,daumesnil,1).
+liga(daumesnil,michel_bizot,1).
+liga(michel_bizot,porte_doree,1).
+liga(porte_doree,porte_de_charenton,1).
+liga(porte_de_charenton,liberte,1).
+liga(liberte,charenton_ecoles,1).
+liga(charenton_ecoles,ecole_veterinaire_de_maisons_alfort,1).
+liga(ecole_veterinaire_de_maisons_alfort,maisons_alfort_stade,1).
+liga(maisons_alfort_stade,maisons_alfort_les_juilliottes,1).
+liga(maisons_alfort_les_juilliottes,creteil_l_echat,1).
+liga(creteil_l_echat,creteil_universite,1).
+liga(creteil_universite,creteil_prefecture,1).
+liga(creteil_prefecture,pointe_du_lac,1).
+
 /* linha 9 */
 
 liga(pont_de_sevres,billancourt,1).
