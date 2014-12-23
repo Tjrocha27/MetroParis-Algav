@@ -267,7 +267,7 @@ estacao(chemin_vert).
 estacao(ledru_rollin).
 estacao(faidherbe_chaligny).
 % estacao(reuilly_diderot). Já existe na linha 1 (Cruzamento)
-estacao(montgallet). 
+estacao(montgallet).
 % estacao(daumesnil). Já existe na linha 6 (Cruzamento)
 estacao(michel_bizot).
 estacao(porte_doree).
@@ -395,7 +395,7 @@ estacao(rennes).
 estacao(notre_dame_des_champs).
 % estacao(montparnasse_bienvenue). Já existe na linha 4,6,13 (Cruzamento)
 estacao(falguiere).
-% estacao(pasteur). Já existe na linha 6(Cruzamento)	
+% estacao(pasteur). Já existe na linha 6(Cruzamento)
 estacao(volontaires).
 estacao(vaugirard).
 estacao(convention).
@@ -428,14 +428,14 @@ estacao(brochant).
 
 estacao(la_fourche).
 % estacao(place_de_clichy).	Já existe na linha 2 (Cruzamento)
-estacao(liege).	
+estacao(liege).
 % estacao(saint_lazare). Já existe na linha 3,12,14 (Cruzamento)
 % estacao(miromesnil). Já existe na linha 9 (Cruzamento)
 % estacao(champs_elysees_clemenceau). Já existe na linha 1 (Cruzamento)
 % estacao(invalides).  Já existe na linha 8 (Cruzamento)
 estacao(varenne).
 estacao(saint_françois_xavier).
-% estacao(duroc). Já existe na linha 10 (Cruzamento) 
+% estacao(duroc). Já existe na linha 10 (Cruzamento)
 % estacao(montparnasse_bienvenue). Já existe na linha 4,6,12 (Cruzamento)
 estacao(gaite).
 estacao(pernety).
@@ -891,6 +891,12 @@ liga(pont_de_neuilly,porte_dauphine,1).
 
 liga(victor_hugo,boissiere,1).
 
+
+
+/* direçoes */
+
+direcao(1,[la_defense,chateau_de_vincennes]).
+direcao(2,[porte_dauphine,nation]).
 
 /* Linhas completas  */
 
