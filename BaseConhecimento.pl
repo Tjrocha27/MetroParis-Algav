@@ -622,6 +622,51 @@ liga(picpus,nation,1).
 
 /* linha 7 */
 
+liga(la_courneuve_8_Mai_1945,fort_d_aubervilliers,1).
+liga(fort_d_aubervilliers,aubervilliers_pantin_quatre_chemins,1).
+liga(aubervilliers_pantin_quatre_chemins,porte_de_la_villette,1).
+liga(porte_de_la_villette,corentin_cariou,1).
+liga(corentin_cariou,crimee,1).
+liga(crimee,riquet,1).
+liga(riquet,stalingrad,1).
+liga(stalingrad,louis_blanc,1).
+liga(louis_blanc,chateau_landon,1).
+liga(chateau_landon,gare_de_l_est,1).
+liga(gare_de_l_est,poissonniere,1).
+liga(poissonniere,cadet,1).
+liga(cadet,le_peletier,1).
+liga(le_peletier,chaussee_d_antin_la_fayette,1).
+liga(chaussee_d_antin_la_fayette,opera,1).
+liga(opera,pyramides,1).
+liga(pyramides,palais_royal_musee_du_louvre,1).
+liga(palais_royal_musee_du_louvre,pont_neuf,1).
+liga(pont_neuf,chatelet,1).
+liga(chatelet,pont_marie,1).
+liga(pont_marie,sully_morland,1).
+liga(sully_morland,jussieu,1).
+liga(jussieu,place_monge,1).
+liga(place_monge,censier_daubenton,1).
+liga(censier_daubenton,les_gobelins,1).
+liga(les_gobelins,place_d_italie,1).
+liga(place_d_italie,tolbiac,1).
+liga(tolbiac,maison_blanche,1).
+
+% divisao em duas linhas
+
+% direcao mairie_d_ivry
+
+liga(maison_blanche,porte_d_italie,1).
+liga(porte_d_italie,porte_de_choisy,1).
+liga(porte_de_choisy,porte_d_ivry,1).
+liga(porte_d_ivry,pierre_et_marie_curie,1).
+liga(pierre_et_marie_curie,mairie_d_ivry,1).
+
+% direcao villejuif_louis_aragon
+
+liga(maison_blanche,le_kremlin_bicetre,1).
+liga(le_kremlin_bicetre,villejuif_leo_lagrange,1).
+liga(villejuif_leo_lagrange,villejuif_paul_vaillant_couturier,1).
+liga(villejuif_paul_vaillant_couturier,villejuif_louis_aragon,1).
 
 /* linha 7bis */
 
@@ -639,7 +684,6 @@ liga(place_des_fetes,pre_saint_gervais,1).
 
 liga(pre_saint_gervais,danube,1).
 liga(danube,botzaris,1).
-
 
 /* linha 8 */
 
