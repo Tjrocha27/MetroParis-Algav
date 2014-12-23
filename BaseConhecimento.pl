@@ -631,6 +631,33 @@ liga(picpus,nation,1).
 /* linha 11 */
 
 /* linha 12 */
+liga(front_populaire,porte_de_la_chapelle,1).
+liga(porte_de_la_chapelle,marx_dormoy,1).
+liga(marx_dormoy,marcadet_poissonniers,1).
+liga(marcadet_poissonniers,jules_joffrin,1).
+liga(jules_joffrin,lamarck_caulaincourt,1).
+liga(lamarck_caulaincourt,abesses,1).
+liga(abesses,pigalle,1).
+liga(pigalle,saint_georges,1).
+liga(saint_georges,notre_dame_de_lorette,1).
+liga(notre_dame_de_lorette,trinite_d_estienne_d_orves,1).
+liga(trinite_d_estienne_d_orves,saint_lazare,1).
+liga(saint_lazare,madeleine,1).
+liga(madeleine,concorde,1).
+liga(concorde,assemblee_nationale,1).
+liga(assemblee_nationale,solferino,1).
+liga(solferino,rue_du_bac,1).
+liga(rue_du_bac,sevres_babylone,1).
+liga(sevres_babylone,rennes,1).
+liga(rennes,notre_dame_des_champs,1).
+liga(notre_dame_des_champs,montparnasse_bienvenue,1).
+liga(montparnasse_bienvenue,falguiere,1).
+liga(falguiere,pasteur,1).
+liga(pasteur,volontaires,1).
+liga(volontaires,vaugirard,1).
+liga(vaugirard,porte_de_versailles,1).
+liga(porte_de_versailles,corentin_celton,1).
+liga(corentin_celton,mairie_d_issy,1).
 
 /* linha 13 */
 % ponto de partida 1
