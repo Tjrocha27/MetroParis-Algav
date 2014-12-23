@@ -224,8 +224,6 @@ estacao(villejuif_leo_lagrange).
 estacao(villejuif_paul_vaillant_couturier).
 estacao(villejuif_louis_aragon).
 
-
-
 /* --- Estaçoes da linha 7 bis --- */
 
 % estacao(louis_blanc). Já existe na linha 7 (Cruzamento)
@@ -449,13 +447,13 @@ estacao(chatillon_montrouge).
 
 /* --- Estaçoes da linha 14 --- */
 
-% estacao(saint-lazare).	Já existe na linha 3,9,12,13 (Cruzamento)
+% estacao(saint_lazare).	Já existe na linha 3,9,12,13 (Cruzamento)
 % estacao(madeleine). Já existe na linha 8,12 (Cruzamento)
 % estacao(pyramides). Já existe na linha 7 (Cruzamento)
 % estacao(chatelet). Já existe na linha 1,4,7,11 (Cruzamento)
 % estacao(gare_de_lyon). Já existe na linha 1 (Cruzamento)
 % estacao(bercy). Já existe na linha 6 (Cruzamento)
-estacao(cour_saint-emilion).
+estacao(cour_saint_emilion).
 estacao(bibliotheque_françois-mitterrand).
 estacao(olympiades).
 
@@ -637,7 +635,13 @@ liga(picpus,nation,1).
 /* linha 13 */
 
 /* linha 14 */
-
+liga(saint_lazare,madeleine,1).
+liga(madeleine,pyramides,1).
+liga(pyramides,chatelet,1).
+liga(chatelet,gare_de_lyon,1).
+liga(gare_de_lyon,bercy,1).
+liga(bercy,nation,1).
+liga(picpus,nation,1).
 
 /* linhas teste */
 
