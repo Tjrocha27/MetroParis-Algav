@@ -181,15 +181,43 @@ estacao(picpus).
 
 /* --- Estaçoes da linha 9 --- */
 
-% estacao(saint_lazare). Já existe na linha 3,9,12,13 (Cruzamento)
-% estacao(madeleine). Já existe na linha 8,12 (Cruzamento)
-% estacao(pyramides).  Já existe na linha 7(Cruzamento)
-% estacao(chatelet). Já existe na linha 1,4,7,11 (Cruzamento)
-% estacao(gare_de_lyon).  Já existe na linha 1 (Cruzamento)
-% estacao(bercy). Já existe na linha 6 (Cruzamento)
-estacao(cour_saint-emilion).
-estacao(bibliotheque_françois_mitterrand).
-estacao(olympiades).
+estacao(pont_de_sevres).
+estacao(billancourt).
+estacao(marcel_sembat).
+estacao(porte_de_saint_cloud).
+estacao(exelmans).
+estacao(michel_ange_molitor). % existe na linha 10 (Cruzamento)
+estacao(michel_ange_auteuil). % existe na linha 10 (Cruzamento)
+estacao(jasmin).
+estacao(ranelagh).
+estacao(la_muette).
+estacao(rue_de_la_pompe).
+% estacao(trocadero). Já existe na linha 6 (Cruzamento)
+estacao(iena).
+estacao(alma_marceau).
+estacao(franklin_d_roosevelt). Já existe na linha 1 (Cruzamento)
+estacao(saint_philippe_du_roule).
+estacao(miromesnil). % existe na linha 13 (Cruzamento)
+estacao(saint_augustin). % existe na linha 14 (Cruzamento)
+% estacao(havre_caumartin). Já existe na linha 3 (Cruzamento)
+% estacao(chaussee_d_antin_la_fayette). Já existe na linha 7 (Cruzamento)
+% estacao(richelieu_drouot). Já existe na linha 8 (Cruzamento)
+estacao(grands_boulevards).
+estacao(bonne_nouvelle).
+% estacao(strasbourg_saint_denis). Já existe na linha 4,8 (Cruzamento)
+% estacao(republique). Já existe na linha 3,5,8,11 (Cruzamento)
+% estacao(oberkampf). Já existe na linha 5 (Cruzamento)
+estacao(saint_ambroise).
+estacao(voltaire).
+estacao(charonne).
+estacao(rue_des_boulets).
+% estacao(nation). Já existe na linha 1,2,6 (Cruzamento)
+estacao(buzenval).
+estacao(maraichers).
+estacao(porte_de_montreuil).
+estacao(robespierre).
+estacao(croix_de_chavaux).
+estacao(mairie_de_montreuil).
 
 /* --- Estaçoes da linha 10 --- */
 
