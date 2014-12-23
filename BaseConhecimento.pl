@@ -627,6 +627,35 @@ liga(picpus,nation,1).
 /* linha 9 */
 
 /* linha 10 */
+liga(boulogne_pont_de_saint_cloud,boulogne_jean_jaures,1).
+
+% direcao Gare d_austerlitz
+
+liga(boulogne_jean_jaures,michel_ange_molitor,1).
+liga(michel_ange_molitor,chardon_lagache,1).
+liga(chardon_lagache,mirabeau,1).
+liga(mirabeau,javel_andre_citroen,1).
+liga(javel_andre_citroen,charles_michels,1).
+liga(charles_michels,avenue_emile_zola,1).
+liga(avenue_emile_zola,la_motte_picquet_grenelle,1).
+liga(la_motte_picquet_grenelle,segur,1).
+liga(segur,duroc,1).
+liga(duroc,vaneau,1).
+liga(vaneau,sevres_babylone,1).
+liga(sevres_babylone,mabillon,1).
+liga(mabillon,odeon,1).
+liga(odeon,cluny_la_sorbonne,1).
+liga(cluny_la_sorbonne,maubert_mutualité,1).
+liga(maubert_mutualité,cardinal_lemoine,1).
+liga(cardinal_lemoine,jussieu,1).
+liga(jussieu,gare_d_austerlitz,1).
+
+% direcao Boulogne pont de saint_cloud
+
+liga(javel_andre_citroen,eglise_d_auteuil,1).
+liga(eglise_d_auteuil,michel_ange_auteuil,1).
+liga(michel_ange_auteuil,porte_d_auteuil,1).
+liga(porte_d_auteuil,boulogne_jean_jaures,1).
 
 /* linha 11 */
 liga(chatelet,hotel_de_ville,1).
