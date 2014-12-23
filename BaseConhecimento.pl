@@ -177,7 +177,46 @@ estacao(picpus).
 
 /* --- Estaçoes da linha 7 --- */
 
+/* --- Estaçoes da linha 8 --- */
 
+estacao(balard).
+estacao(lourmel).
+estacao(boucicaut).
+estacao(felix_faure).
+estacao(commerce).
+% estacao(la_motte_picquet_grenelle). Já existe na linha 6,10 (Cruzamento)
+estacao(ecole_militaire).
+estacao(la_tour_maubourg).
+estacao(invalides). % existe na linha 13 (Cruzamento)
+% estacao(concorde). Já existe na linha 1,12 (Cruzamento)
+estacao(madeleine). % existe na linha 12,14 (Cruzamento)
+% estacao(opera).  Já existe na linha 3,7 (Cruzamento)
+estacao(richelieu_drouot). % existe na linha 9 (Cruzamento)
+estacao(grands_boulevards).
+estacao(bonne_nouvelle).
+% estacao(strasbourg_saint_denis). Já existe na linha 4,9 (Cruzamento)
+% estacao(republique). Já existe na linha 3,5,9,11 (Cruzamento)
+estacao(filles_du_calvaire).
+estacao(saint_sebastien_froissart).
+estacao(chemin_vert).
+% estacao(bastille). Já existe na linha 1,5 (Cruzamento)
+estacao(ledru_rollin).
+estacao(faidherbe_chaligny).
+% estacao(reuilly_diderot). Já existe na linha 1 (Cruzamento)
+estacao(montgallet). 
+% estacao(daumesnil). Já existe na linha 6 (Cruzamento)
+estacao(michel_bizot).
+estacao(porte_doree).
+estacao(porte_de_charenton).
+estacao(liberte).
+estacao(charenton_ecoles).
+estacao(ecole_veterinaire_de_maisons_alfort).
+estacao(maisons_alfort_stade).
+estacao(maisons_alfort_les_juilliottes).
+estacao(creteil_l_echat).
+estacao(creteil_universite).
+estacao(creteil_prefecture).
+estacao(pointe_du_lac).
 
 /* --- Estaçoes da linha 9 --- */
 
