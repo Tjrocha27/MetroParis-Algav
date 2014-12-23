@@ -629,6 +629,18 @@ liga(picpus,nation,1).
 /* linha 10 */
 
 /* linha 11 */
+liga(chatelet,hotel_de_ville,1).
+liga(hotel_de_ville,rambuteau,1).
+liga(rambuteau,arts_et_metiers,1).
+liga(arts_et_metiers,republique,1).
+liga(republique,goncourt,1).
+liga(goncourt,belleville,1).
+liga(belleville,pyrenees,1).
+liga(pyrenees,jourdain,1).
+liga(jourdain,place_des_fetes,1).
+liga(place_des_fetes,telegraphe,1).
+liga(telegraphe,porte_des_lilas,1).
+liga(porte_des_lilas,mairie_des_lilas,1).
 
 /* linha 12 */
 liga(front_populaire,porte_de_la_chapelle,1).
