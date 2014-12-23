@@ -626,6 +626,43 @@ liga(picpus,nation,1).
 
 /* linha 9 */
 
+liga(pont_de_sevres,billancourt,1).
+liga(billancourt,marcel_sembat,1).
+liga(marcel_sembat,porte_de_saint_cloud,1).
+liga(porte_de_saint_cloud,exelmans,1).
+liga(exelmans,michel_ange_molitor,1).
+liga(michel_ange_molitor,michel_ange_auteuil,1).
+liga(michel_ange_auteuil,jasmin,1).
+liga(jasmin,ranelagh,1).
+liga(ranelagh,la_muette,1).
+liga(la_muette,rue_de_la_pompe,1).
+liga(rue_de_la_pompe,trocadero,1).
+liga(trocadero,iena,1).
+liga(iena,alma_marceau,1).
+liga(alma_marceau,franklin_d_roosevelt,1).
+liga(franklin_d_roosevelt,saint_philippe_du_roule,1).
+liga(saint_philippe_du_roule,miromesnil,1).
+liga(miromesnil,saint_augustin,1).
+liga(saint_augustin,havre_caumartin,1).
+liga(havre_caumartin,chaussee_d_antin_la_fayette,1).
+liga(chaussee_d_antin_la_fayette,richelieu_drouot,1).
+liga(richelieu_drouot,grands_boulevards,1).
+liga(grands_boulevards,bonne_nouvelle,1).
+liga(bonne_nouvelle,strasbourg_saint_denis,1).
+liga(strasbourg_saint_denis,republique,1).
+liga(republique,oberkampf,1).
+liga(oberkampf,saint_ambroise,1).
+liga(saint_ambroise,voltaire,1).
+liga(voltaire,charonne,1).
+liga(charonne,rue_des_boulets,1).
+liga(rue_des_boulets,nation,1).
+liga(nation,buzenval,1).
+liga(buzenval,maraichers,1).
+liga(maraichers,porte_de_montreuil,1).
+liga(porte_de_montreuil,robespierre,1).
+liga(robespierre,croix_de_chavaux,1).
+liga(croix_de_chavaux,mairie_de_montreuil,1).
+
 /* linha 10 */
 liga(boulogne_pont_de_saint_cloud,boulogne_jean_jaures,1).
 
