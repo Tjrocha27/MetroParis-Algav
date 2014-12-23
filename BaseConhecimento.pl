@@ -175,7 +175,22 @@ estacao(picpus).
 %estacao(nation). já existe na linha 1,6,9
 
 
-/* --- Estaçoes da linha 7 --- */
+/* --- Estaçoes da linha 7 bis --- */
+
+% estacao(louis_blanc). Já existe na linha 7 (Cruzamento)
+% estacao(jaures). Já existe na linha 2,5 (Cruzamento)
+estacao(bolivar).
+estacao(buttes_chaumont).
+estacao(botzaris).
+
+% direcao pre_saint_gervais
+
+estacao(place_des_fetes). % existe na linha 11 (Cruzamento)
+estacao(pre_saint_gervais).
+
+% direcao louis_blanc
+
+estacao(danube).
 
 /* --- Estaçoes da linha 8 --- */
 
