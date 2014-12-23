@@ -175,6 +175,57 @@ estacao(picpus).
 %estacao(nation). já existe na linha 1,6,9
 
 
+/* --- Estaçoes da linha 7 --- */
+
+estacao(la_courneuve_8_Mai_1945).
+estacao(fort_d_aubervilliers).
+estacao(aubervilliers_pantin_quatre_chemins).
+estacao(porte_de_la_villette).
+estacao(corentin_cariou).
+estacao(crimee).
+estacao(riquet).
+% estacao(stalingrad). Já existe na linha 2,5 (Cruzamento)
+estacao(louis_blanc). % existe na linha 7bis (Cruzamento)
+estacao(chateau_landon).
+% estacao(gare_de_l_est). Já existe na linha 4,5 (Cruzamento)
+estacao(poissonniere).
+estacao(cadet).
+estacao(le_peletier).
+estacao(chaussee_d_antin_la_fayette). % existe na linha 9 (Cruzamento)
+% estacao(opera). Já existe na linha 3,8 (Cruzamento)
+estacao(pyramides). % existe na linha 14 (Cruzamento)
+% estacao(palais_royal_musee_du_louvre). Já existe na linha 1(Cruzamento)
+estacao(pont_neuf).
+% estacao(chatelet). Já existe na linha 1,4,11,14 (Cruzamento)
+estacao(pont_marie).
+estacao(sully_morland).
+estacao(jussieu). % existe na linha 10 (Cruzamento)
+estacao(place_monge).
+estacao(censier_daubenton).
+estacao(les_gobelins).
+% estacao(place_d_italie). Já existe na linha 5,6 (Cruzamento)
+estacao(tolbiac).
+estacao(maison_blanche).
+
+% divisao em duas linhas
+
+% direcao mairie_d_ivry
+
+estacao(porte_d_italie).
+estacao(porte_de_choisy).
+estacao(porte_d_ivry).
+estacao(pierre_et_marie_curie).
+estacao(mairie_d_ivry).
+
+% direcao villejuif_louis_aragon
+
+estacao(le_kremlin_bicetre).
+estacao(villejuif_leo_lagrange).
+estacao(villejuif_paul_vaillant_couturier).
+estacao(villejuif_louis_aragon).
+
+
+
 /* --- Estaçoes da linha 7 bis --- */
 
 % estacao(louis_blanc). Já existe na linha 7 (Cruzamento)
