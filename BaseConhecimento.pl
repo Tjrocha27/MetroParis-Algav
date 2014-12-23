@@ -622,6 +622,25 @@ liga(picpus,nation,1).
 
 /* linha 7 */
 
+
+/* linha 7bis */
+
+liga(louis_blanc,jaures,1).
+liga(jaures,bolivar,1).
+liga(bolivar,buttes_chaumont,1).
+liga(buttes_chaumont,botzaris,1).
+
+% direcao pre_saint_gervais
+
+liga(botzaris,place_des_fetes,1).
+liga(place_des_fetes,pre_saint_gervais,1).
+
+% direcao louis_blanc
+
+liga(pre_saint_gervais,danube,1).
+liga(danube,botzaris,1).
+
+
 /* linha 8 */
 
 liga(balard,lourmel,1).
