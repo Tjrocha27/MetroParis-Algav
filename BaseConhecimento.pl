@@ -896,7 +896,48 @@ liga(victor_hugo,boissiere,1).
 /* direçoes */
 
 direcao(1,[la_defense,chateau_de_vincennes]).
+direcao(1,[chateau_de_vincennes,la_defense]).
 direcao(2,[porte_dauphine,nation]).
+direcao(2,[nation,porte_dauphine]).
+direcao(3,[pont_de_levallois_becon,gallieni]).
+direcao(3,[gallieni,pont_de_levallois_becon]).
+
+%3bis por fazer
+direcao(3,[porte_dauphine,nation]).
+direcao(3,[porte_dauphine,nation]).
+
+direcao(4,[porte_de_clignancourt,mairie_de_montrouge]).
+direcao(4,[mairie_de_montrouge,porte_de_clignancourt]).
+direcao(5,[bobigny_pablo_picasso,place_ditalie]).
+direcao(5,[place_ditalie,bobigny_pablo_picasso]).
+direcao(6,[charles_de_gaulle,nation]).
+direcao(6,[nation,charles_de_gaulle]).
+direcao(7,[la_courneuve_8_Mai_1945,maison_blanche]).
+direcao(7,[maison_blanche,la_courneuve_8_Mai_1945]).
+
+%7bis
+direcao(7,[louis_blanc,pre_saint_gervais]).
+direcao(7,[pre_saint_gervais,louis_blanc]).
+
+direcao(8,[balard,pointe_du_lac]).
+direcao(8,[pointe_du_lac,balard]).
+direcao(9,[pont_de_sevres,mairie_de_montreuil]).
+direcao(9,[mairie_de_montreuil,pont_de_sevres]).
+direcao(10,[boulogne_pont_de_saint_cloud,gare_d_austerlitz]).
+direcao(10,[gare_d_austerlitz,boulogne_pont_de_saint_cloud]).
+direcao(11,[chatelet,mairie_des_lilas]).
+direcao(11,[mairie_des_lilas,chatelet]).
+direcao(12,[front_populaire,mairie_d_issy]).
+direcao(12,[mairie_d_issy,front_populaire]).
+
+direcao(13,[saint_denis_universite,chatillon_montrouge]).
+direcao(13,[chatillon_montrouge,saint_denis_universite]).
+direcao(13,[asnieres_gennevilliers_les_courtilles,chatillon_montrouge]).
+direcao(13,[chatillon_montrouge,asnieres_gennevilliers_les_courtilles]).
+
+direcao(14,[saint_lazare,olympiades]).
+direcao(14,[olympiades,saint_lazare]).
+
 
 /* Linhas completas  */
 
