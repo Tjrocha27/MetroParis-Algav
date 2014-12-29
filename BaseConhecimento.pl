@@ -11,10 +11,10 @@ estacao(pont_de_neuilly).
 estacao(les_sablons).
 estacao(porte_maillot).
 estacao(argentine).
-estacao(charles_de_gaulle-etoile).
+estacao(charles_de_gaulle_etoile).
 estacao(george_v).
 estacao(franklin_d_roosevelt).
-estacao(champs-elysees-clemenceau).
+estacao(champs_elysees_clemenceau).
 estacao(concorde).
 estacao(tuileries).
 estacao(palais_royal_musee_du_louvre).
@@ -34,7 +34,7 @@ estacao(chateau_de_vincennes).
 /*  --- Estaçoes da linha 2 --- */
 estacao(porte_dauphine).
 estacao(victor_hugo).
-% estacao(charles_de_gaulle-etoile). Já existe na linha 1,6 (Cruzamento)
+% estacao(charles_de_gaulle_etoile). Já existe na linha 1,6 (Cruzamento)
 estacao(ternes).
 estacao(courcelles).
 estacao(monceau).
@@ -156,9 +156,9 @@ estacao(trocadero).
 estacao(passy).
 estacao(bir_hakeim).
 estacao(dupleix).
-estacao(la_motte-picquet_grenelle).
+estacao(la_motte_picquet_grenelle).
 estacao(cambronne).
-estacao(sevres-lecourbe).
+estacao(sevres_lecourbe).
 estacao(pasteur).
 % estacao(montparnasse_bienvenue). já existe na linha 4
 estacao(edgar_quinet).
@@ -416,7 +416,7 @@ estacao(saint_denis_porte_de_paris).
 estacao(carrefour_pleyel).
 estacao(mairie_de_saint_ouen).
 estacao(garibaldi).
-estacao(porte_de_saint-ouen).
+estacao(porte_de_saint_ouen).
 estacao(guy_moquet).
 
 % ponto de partida 2
@@ -458,7 +458,7 @@ estacao(chatillon_montrouge).
 % estacao(gare_de_lyon). Já existe na linha 1 (Cruzamento)
 % estacao(bercy). Já existe na linha 6 (Cruzamento)
 estacao(cour_saint_emilion).
-estacao(bibliotheque_françois-mitterrand).
+estacao(bibliotheque_françois_mitterrand).
 estacao(olympiades).
 
 /* --- LIGAÇOES DIRETAS DAS LINHAS  --- */
@@ -470,11 +470,11 @@ liga(esplanade_de_la_defense,pont_de_neuilly,1).
 liga(pont_de_neuilly,les_sablons,1).
 liga(les_sablons,porte_maillot,1).
 liga(porte_maillot,argentine,1).
-liga(argentine,charles_de_gaulle-etoile,1).
-liga(charles_de_gaulle-etoile,george_v,1).
+liga(argentine,charles_de_gaulle_etoile,1).
+liga(charles_de_gaulle_etoile,george_v,1).
 liga(george_v,franklin_d_roosevelt,1).
-liga(franklin_d_roosevelt,champs-elysees-clemenceau,1).
-liga(champs-elysees-clemenceau,concorde,1).
+liga(franklin_d_roosevelt,champs_elysees_clemenceau,1).
+liga(champs_elysees_clemenceau,concorde,1).
 liga(concorde,tuileries,1).
 liga(tuileries,palais_royal_musee_du_louvre,1).
 liga(palais_royal_musee_du_louvre,louvre_rivoli,1).
@@ -493,8 +493,8 @@ liga(berault,chateau_de_vincennes,1).
 /* linha 2 */
 
 liga(porte_dauphine,victor_hugo,1).
-liga(victor_hugo,charles_de_gaulle-etoile,1).
-liga(charles_de_gaulle-etoile,ternes,1).
+liga(victor_hugo,charles_de_gaulle_etoile,1).
+liga(charles_de_gaulle_etoile,ternes,1).
 liga(ternes,courcelles,1).
 liga(courcelles,monceau,1).
 liga(monceau,villiers,1).
@@ -596,22 +596,22 @@ liga(saint_marcel,campo_formio,1).
 liga(campo_formio,place_ditalie,1).
 
 /* linha 6 */
-liga(charles_de_gaulle-etoile,kleber,1).
+liga(charles_de_gaulle_etoile,kleber,1).
 liga(kleber,boissiere,1).
 liga(boissiere, trocadero,1).
 liga(trocadero,passy,1).
-liga(passy,bir-hakeim,1).
-liga(bir-hakeim,dupleix,1).
-liga(dupleix,la_motte-picquet_grenelle,1).
-liga(la_motte-picquet_grenelle,cambronne,1).
-liga(cambronne,sevres-lecourbe,1).
-liga(sevres-lecourbe,pasteur,1).
+liga(passy,bir_hakeim,1).
+liga(bir_hakeim,dupleix,1).
+liga(dupleix,la_motte_picquet_grenelle,1).
+liga(la_motte_picquet_grenelle,cambronne,1).
+liga(cambronne,sevres_lecourbe,1).
+liga(sevres_lecourbe,pasteur,1).
 liga(pasteur,montparnasse_bienvenue,1).
 liga(montparnasse_bienvenue,edgar_quinet,1).
 liga(edgar_quinet,raspail,1).
 liga(raspail,denfert_rochereau,1).
-liga(denfert_rochereau,saint-jacques,1).
-liga(saint-jacques,glaciere,1).
+liga(denfert_rochereau,saint_jacques,1).
+liga(saint_jacques,glaciere,1).
 liga(glaciere,corvisart,1).
 liga(corvisart,place_ditalie,1).
 liga(place_ditalie,nationale,1).
@@ -620,8 +620,8 @@ liga(chevaleret,quai_de_la_gare,1).
 liga(quai_de_la_gare,bercy,1).
 liga(bercy,dugommier,1).
 liga(dugommier,daumesnil,1).
-liga(daumesnil,bel-air,1).
-liga(bel-air,picpus,1).
+liga(daumesnil,bel_air,1).
+liga(bel_air,picpus,1).
 liga(picpus,nation,1).
 
 /* linha 7 */
@@ -955,7 +955,7 @@ linha(3,[porte_des_lilas,saint_fargeau,pelleport,gambetta]).
 
 linha(4,[porte_de_clignancourt,simplon,marcadet_poissonniers,chateau_rouge,barbes_rochechouart,gare_du_nord,gare_de_lest,chateau_deau,strasbourg_saint_denis,reaumur_sebastopol,etienne_marcel,les_halles,chatelet,cite,saint_michel,odeon,saint_germain_des_pres,saint_sulpice,saint_placide,montparnasse_bienvenue,vavin,raspail,denfert_rochereau,mouton_duvernet,alesia,porte_dorleans,mairie_de_montrouge]).
 linha(5,[bobigny_pablo_picasso,bobigny_pantin_raymon_queneau,eglise_de_pantin,hoche,porte_de_pantin,ourcq,laumiere,jaures,stalingrad,gare_du_nord,gare_de_l_est,jacques_bonsergent,republique,oberkampf,richard_lenoir,breguet_sabin,bastille,quai_de_la_rapee,gare_dausterlitz,saint_marcel,campo_formio,place_ditalie]).
-linha(6,[charles_de_gaulle_etoile,kleber,boissiere,trocadero,passy,bir_hakeim,dupleix,la_motte-picquet_grenelle,cambronne,sevres-lecourbe,pasteur,montparnasse_bienvenue,edgar_quinet,raspail,saint_jacques,glaciere,corvisart,place_ditalie,nationale,chevaleret,quai_de_la_gare,bercy,dugommier,daumesnil,bel_air,picpus,nation]).
+linha(6,[charles_de_gaulle_etoile,kleber,boissiere,trocadero,passy,bir_hakeim,dupleix,la_motte_picquet_grenelle,cambronne,sevres_lecourbe,pasteur,montparnasse_bienvenue,edgar_quinet,raspail,saint_jacques,glaciere,corvisart,place_ditalie,nationale,chevaleret,quai_de_la_gare,bercy,dugommier,daumesnil,bel_air,picpus,nation]).
 
 /* linha 7 sentido mairie_d_ivry */
 linha(7,[la_courneuve_8_Mai_1945,fort_d_aubervilliers,aubervilliers_pantin_quatre_chemins,porte_de_la_villette,corentin_cariou,crimee,riquet,stalingrad,louis_blanc,chateau_landon,gare_de_l_est,poissonniere,cadet,le_peletier,chaussee_d_antin_la_fayette,opera,pyramides,palais_royal_musee_du_louvre,pont_neuf,chatelet,pont_marie,sully_morland,jussieu,place_monge,censier_daubenton,les_gobelins,place_d_italie,tolbiac,maison_blanche,porte_d_italie,porte_de_choisy,porte_d_ivry,pierre_et_marie_curie,mairie_d_ivry]).
