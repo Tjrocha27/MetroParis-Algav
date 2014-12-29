@@ -78,9 +78,42 @@ maisRapido:- write('Insira a Sua estação Actual'),nl,
 
 pontosInteresse.
 
+planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
+	         write(' *				       * '),nl,
+		 write(' * 1- Visitas de meio dia(5 horas)     * '),nl,
+		 write(' * 2- Visitas de dia inteiro(8 horas)  * '),nl,
+		 write(' * 0- Menu Anterior                    * '),nl,
+		 write(' *				       * '),nl,
+		 write(' *************************************** '),nl,
+		 read(Op),
+		 exeVis(Op).
+		 
+exeVis(Op):- 
+		Op == 1, visitasMeioDia, true,!;
+		Op == 2, visitasDiaInteiro ,true,!;
+		Op == 0, true,!;
+		menu,!.
+		 
+visitasMeioDia:-
+		write('Locais que pretende visitar: '),nl,
+		read(Locais),
+		planoVisitasMeioDia(Locais,Plano),
+		write('O Plano é o seguinte:'),nl,
+		write('teste'),nl,nl.
 
-planearVisitas.
+visitasDiaInteiro:-
+		write('Locais que pretende visitar: '),nl,
+		read(Locais),
+		planoVisitasDiaInteiro(Locais,Plano),
+		write('O Plano é o seguinte:'),nl,
+		write('teste'),nl,nl.
 
+/* teste planear visitas		 
+planearVisitas2:-
+		open('visitas.txt',write,Stream),
+		write(Stream,'teste visitas'), nl(Stream),
+		close(Stream).
+*/
 
 /* --- Predicados Auxiliares --- */
 
@@ -200,3 +233,21 @@ determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
 	append(LR,Lcaminho,Lappend),
 	determina_caminho_curto(EstacaoDestino,Lappend,L).
 
+/* --- 4-Permitir a modelação de alguns pontos de interesse turísticos com a indicação de atributos
+ como horário de funcionamento (dias e horas), tempo estimado de visita, localização
+ (estação ou estações de metro mais próximas) --- */
+
+ planoVisitasMeioDia(Locais,Plano).
+ 
+ planoVisitasDiaInteiro(Locais,Plano).
+ 
+ 
+/* --- 5-Planear visitas de meio dia (5 horas) ou de dia inteiro (8 horas). Recebe a indicação dos
+locais que se pretendem visitar e elabora um plano de visita usando o
+metro como meio de transporte.--- */
+
+/* --- 6-Planear uma visita que começa e acaba no mesmo local usando o metro como meio de transporte
+ e que deverá ser exportada para um ficheiro de texto. Este ficheiro deverá conter os trajetos a
+ fazer e a estimativa das horas parciais e de termino da visita. Deverão ser fornecidos os locais
+ de interesse que se deseja visitar, o local de inicio (que poderá ser um local de interesse ou
+ uma estação de metro) e a hora de inicio. --- */

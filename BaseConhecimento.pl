@@ -82,7 +82,7 @@ estacao(republique). % existe na linha 5,8,9,11
 estacao(parmentier).
 estacao(rue_saint_maur).
 estacao(pere_lachaise). % existe na linha 2
-estacao(gambetta). 
+estacao(gambetta).
 estacao(porte_de_bagnolet). % existe na linha 3
 estacao(gallieni).
 
@@ -302,7 +302,7 @@ estacao(rue_de_la_pompe).
 % estacao(trocadero). Já existe na linha 6 (Cruzamento)
 estacao(iena).
 estacao(alma_marceau).
-estacao(franklin_d_roosevelt). Já existe na linha 1 (Cruzamento)
+% estacao(franklin_d_roosevelt). Já existe na linha 1 (Cruzamento)
 estacao(saint_philippe_du_roule).
 estacao(miromesnil). % existe na linha 13 (Cruzamento)
 estacao(saint_augustin). % existe na linha 14 (Cruzamento)
