@@ -989,4 +989,17 @@ linha(13,[asnieres_gennevilliers_les_courtilles,les_agnettes,gabriel_peri,mairie
 
 linha(14,[saint_lazare,madeleine,pyramides,chatelet,gare_de_lyon,bercy,cour_saint_emilion,bibliotheque_françois_mitterrand,olympiades]).
 
+/*  Pontos de interesse turísticos  */
+% exemplo: ponto_de_interesse(interesse,estaçao_proxima,[linhas],[[dias_abertos],horainicio,horafim]).
+
+ponto_de_interesse(sacre_coeur_mont_martre,anvers,2,[[1,2,3,4,5,6,7],06:00,22:30]).
+ponto_de_interesse(city_hall_of_paris,hotel_de_ville,[1,11],[[1,2,3,4,5],00:01,23:59]).
+ponto_de_interesse(eiffel_tower,bir_hakeim,6,[[1,2,3,4,5,6,7],09:30,23:00]).
+% ponto_de_interesse(moulin_rouge,pigalle,[2,12],).
+ponto_de_interesse(arc_de_triomphe,charles_de_gaulle_etoile,[1,2,6],[[1,2,3,4,5,6,7],10:00,22:30]).
+ponto_de_interesse(royal_palace_and_louvre,palais_royal_musee_du_louvre,[1,7],[[1,3,4,5,6,7],09:00,18:00]).
+ponto_de_interesse(notre_dame,saint_michel,[4],[[1,2,3,4,5,6,7],08:00,18:45]).
+ponto_de_interesse(boulevard_Haussmann,havre_caumartin,[3,9],[[1,2,3,4,5,6,7],00:00,23:59]).
+ponto_de_interesse(champs_elysees,champs_elysees_clemenceau,[1,13],[[[1,2,3,4,5,6],10:00,23:45],[7],12:00,23:45]).
+
 /* --- FIM --- */
