@@ -82,11 +82,15 @@ estacao(republique). % existe na linha 5,8,9,11
 estacao(parmentier).
 estacao(rue_saint_maur).
 estacao(pere_lachaise). % existe na linha 2
-estacao(gambetta). % existe na linha 3
+estacao(gambetta). 
 estacao(porte_de_bagnolet). % existe na linha 3
 estacao(gallieni).
 
 /* --- Estaçoes da linha 3 bis --- */
+estacao(porte_des_lilas). % existe na linha 11
+estacao(saint_fargeau).
+estacao(pelleport).
+% estacao(gambetta). Já existe na linha 3
 
 /* --- Estaçoes da linha 4 --- */
 
@@ -130,7 +134,7 @@ estacao(laumiere).
 % estacao(jaures). Já existe na linha 2 (Cruzamento)
 % estacao(stalingrad). Já existe na linha 2,7 (Cruzamento)
 % estacao(gare_du_nord). Já existe na linha 4 (Cruzamento)
-% estacao(gare_de_l'est). Já existe na linha 4,7 (Cruzamento)
+% estacao(gare_de_l_est). Já existe na linha 4,7 (Cruzamento)
 estacao(jacques_bonsergent).
 % estacao(republique). Já existe na linha 3,8,9,11 (Cruzamento)
 estacao(oberkampf). % existe na linha 9
@@ -145,22 +149,22 @@ estacao(place_ditalie). % existe na linha 6,7
 
 /* --- Estaçoes da linha 6 --- */
 
-% estacao(charles_de_gaulle-etoile). Já existe na linha 1,2 (Cruzamento)
+% estacao(charles_de_gaulle_etoile). Já existe na linha 1,2 (Cruzamento)
 estacao(kleber).
 estacao(boissiere).
 estacao(trocadero).
 estacao(passy).
-estacao(bir-hakeim).
+estacao(bir_hakeim).
 estacao(dupleix).
 estacao(la_motte-picquet_grenelle).
 estacao(cambronne).
 estacao(sevres-lecourbe).
 estacao(pasteur).
-%estacao(montparnasse_bienvenue). já existe na linha 4
+% estacao(montparnasse_bienvenue). já existe na linha 4
 estacao(edgar_quinet).
-%estacao(raspail). já existe na linha 4
+% estacao(raspail). já existe na linha 4
 %estacao(denfert_rochereau). já existe na linha 4
-estacao(saint-jacques).
+estacao(saint_jacques).
 estacao(glaciere).
 estacao(corvisart).
 estacao(place_ditalie).
@@ -170,9 +174,9 @@ estacao(quai_de_la_gare).
 estacao(bercy).
 estacao(dugommier).
 estacao(daumesnil).
-estacao(bel-air).
+estacao(bel_air).
 estacao(picpus).
-%estacao(nation). já existe na linha 1,6,9
+% estacao(nation). já existe na linha 1,6,9
 
 
 /* --- Estaçoes da linha 7 --- */
@@ -855,6 +859,7 @@ liga(les_agnettes,gabriel_peri,1).
 liga(gabriel_peri,mairie_de_clichy,1).
 liga(mairie_de_clichy,porte_de_clichy,1).
 liga(porte_de_clichy,brochant,1).
+liga(brochant,la_fourche,1).
 
 % uniao das duas linhas
 liga(la_fourche,place_de_clichy,1).
@@ -944,8 +949,22 @@ direcao(14,[olympiades,saint_lazare]).
 
 linha(1,[la_defense,esplanade_de_la_defense,pont_de_neuilly,les_sablons,neuilly_pte_maillot,charles_de_gaulle-etoilegeorge_v,franklin_d_roosevelt,champs-elysees-clemenceau,concorde,tuileries,palais_royal_musee_du_louvre,louvre_rivoli,chatelet,hotel_de_ville,saint_paul,bastille,gare_de_lyon,reuilly_diderot,nation,porte_de_vincennes,saint_mande,berault,chateau_de_vincennes]).
 linha(2,[porte_dauphine,victor_hugo,charles_de_gaulle-etoile,ternes,courcelles,monceau,villiers,rome,place_de_clichy,blanche,pigalle,anvers,barbes_rochechouart,la_chapelle,stalingrad,jaures,colonel_fabien,belleville,couronnes,menilmontant,pere_lachaise,philippe_auguste,alexandre_dumas]).
+linha(3,[pont_de_levallois_becon,anatole_france,louise_michel,porte_de_champerret,pereire,wagram,malesherbes,villiers,europe,saint_lazare,havre_caumartin,opera,quatre_septembre,bourse,sentier,reaumur_sebastopol,arts_et_metiers,temple,republique,parmentier,rue_saint_maur,pere_lachaise,gambetta,porte_de_bagnolet,gallieni]).
 
+%linha 3bis
+linha(3,[pont_de_levallois_becon,anatole_france,louise_michel,porte_de_champerret,pereire,wagram,malesherbes,villiers,europe,saint_lazare,havre_caumartin,opera,quatre_septembre,bourse,sentier,reaumur_sebastopol,arts_et_metiers,temple,republique,parmentier,rue_saint_maur,pere_lachaise,gambetta,porte_de_bagnolet,gallieni]).
 
+linha(4,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(5,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
 linha(6,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(7,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(7,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(8,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(9,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(10,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(11,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(12,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(13,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
+linha(14,[charles_de_gaulle-etoile,kleber,boissiere,trocadero]).
 
 /* --- FIM --- */
