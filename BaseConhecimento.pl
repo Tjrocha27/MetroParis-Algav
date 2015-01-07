@@ -908,8 +908,8 @@ direcao(3,[pont_de_levallois_becon,gallieni]).
 direcao(3,[gallieni,pont_de_levallois_becon]).
 
 %3bis por fazer
-direcao(3,[porte_dauphine,nation]).
-direcao(3,[porte_dauphine,nation]).
+direcao(31,[porte_dauphine,nation]).
+direcao(31,[porte_dauphine,nation]).
 
 direcao(4,[porte_de_clignancourt,mairie_de_montrouge]).
 direcao(4,[mairie_de_montrouge,porte_de_clignancourt]).
@@ -921,8 +921,8 @@ direcao(7,[la_courneuve_8_Mai_1945,maison_blanche]).
 direcao(7,[maison_blanche,la_courneuve_8_Mai_1945]).
 
 %7bis
-direcao(7,[louis_blanc,pre_saint_gervais]).
-direcao(7,[pre_saint_gervais,louis_blanc]).
+direcao(71,[louis_blanc,pre_saint_gervais]).
+direcao(71,[pre_saint_gervais,louis_blanc]).
 
 direcao(8,[balard,pointe_du_lac]).
 direcao(8,[pointe_du_lac,balard]).
@@ -946,48 +946,50 @@ direcao(14,[olympiades,saint_lazare]).
 
 /* Linhas completas  */
 
-linha(1,[la_defense,esplanade_de_la_defense,pont_de_neuilly,les_sablons,neuilly_pte_maillot,charles_de_gaulle_etoilegeorge_v,franklin_d_roosevelt,champs_elysees_clemenceau,concorde,tuileries,palais_royal_musee_du_louvre,louvre_rivoli,chatelet,hotel_de_ville,saint_paul,bastille,gare_de_lyon,reuilly_diderot,nation,porte_de_vincennes,saint_mande,berault,chateau_de_vincennes]).
-linha(2,[porte_dauphine,victor_hugo,charles_de_gaulle_etoile,ternes,courcelles,monceau,villiers,rome,place_de_clichy,blanche,pigalle,anvers,barbes_rochechouart,la_chapelle,stalingrad,jaures,colonel_fabien,belleville,couronnes,menilmontant,pere_lachaise,philippe_auguste,alexandre_dumas]).
-linha(3,[pont_de_levallois_becon,anatole_france,louise_michel,porte_de_champerret,pereire,wagram,malesherbes,villiers,europe,saint_lazare,havre_caumartin,opera,quatre_septembre,bourse,sentier,reaumur_sebastopol,arts_et_metiers,temple,republique,parmentier,rue_saint_maur,pere_lachaise,gambetta,porte_de_bagnolet,gallieni]).
+% exemplo: linha(numero_estacao,[lista_estacoes],[frequencia_hora_normal,frequencia_hora_de_ponta]).
+
+linha(1,[la_defense,esplanade_de_la_defense,pont_de_neuilly,les_sablons,neuilly_pte_maillot,charles_de_gaulle_etoilegeorge_v,franklin_d_roosevelt,champs_elysees_clemenceau,concorde,tuileries,palais_royal_musee_du_louvre,louvre_rivoli,chatelet,hotel_de_ville,saint_paul,bastille,gare_de_lyon,reuilly_diderot,nation,porte_de_vincennes,saint_mande,berault,chateau_de_vincennes],[10,2]).
+linha(2,[porte_dauphine,victor_hugo,charles_de_gaulle_etoile,ternes,courcelles,monceau,villiers,rome,place_de_clichy,blanche,pigalle,anvers,barbes_rochechouart,la_chapelle,stalingrad,jaures,colonel_fabien,belleville,couronnes,menilmontant,pere_lachaise,philippe_auguste,alexandre_dumas],[10,2]).
+linha(3,[pont_de_levallois_becon,anatole_france,louise_michel,porte_de_champerret,pereire,wagram,malesherbes,villiers,europe,saint_lazare,havre_caumartin,opera,quatre_septembre,bourse,sentier,reaumur_sebastopol,arts_et_metiers,temple,republique,parmentier,rue_saint_maur,pere_lachaise,gambetta,porte_de_bagnolet,gallieni],[10,2]).
 
 /* linha 3bis */
-linha(3,[porte_des_lilas,saint_fargeau,pelleport,gambetta]).
+linha(31,[porte_des_lilas,saint_fargeau,pelleport,gambetta],[10,2]).
 
-linha(4,[porte_de_clignancourt,simplon,marcadet_poissonniers,chateau_rouge,barbes_rochechouart,gare_du_nord,gare_de_lest,chateau_deau,strasbourg_saint_denis,reaumur_sebastopol,etienne_marcel,les_halles,chatelet,cite,saint_michel,odeon,saint_germain_des_pres,saint_sulpice,saint_placide,montparnasse_bienvenue,vavin,raspail,denfert_rochereau,mouton_duvernet,alesia,porte_dorleans,mairie_de_montrouge]).
-linha(5,[bobigny_pablo_picasso,bobigny_pantin_raymon_queneau,eglise_de_pantin,hoche,porte_de_pantin,ourcq,laumiere,jaures,stalingrad,gare_du_nord,gare_de_l_est,jacques_bonsergent,republique,oberkampf,richard_lenoir,breguet_sabin,bastille,quai_de_la_rapee,gare_dausterlitz,saint_marcel,campo_formio,place_ditalie]).
-linha(6,[charles_de_gaulle_etoile,kleber,boissiere,trocadero,passy,bir_hakeim,dupleix,la_motte_picquet_grenelle,cambronne,sevres_lecourbe,pasteur,montparnasse_bienvenue,edgar_quinet,raspail,saint_jacques,glaciere,corvisart,place_ditalie,nationale,chevaleret,quai_de_la_gare,bercy,dugommier,daumesnil,bel_air,picpus,nation]).
+linha(4,[porte_de_clignancourt,simplon,marcadet_poissonniers,chateau_rouge,barbes_rochechouart,gare_du_nord,gare_de_lest,chateau_deau,strasbourg_saint_denis,reaumur_sebastopol,etienne_marcel,les_halles,chatelet,cite,saint_michel,odeon,saint_germain_des_pres,saint_sulpice,saint_placide,montparnasse_bienvenue,vavin,raspail,denfert_rochereau,mouton_duvernet,alesia,porte_dorleans,mairie_de_montrouge],[10,2]).
+linha(5,[bobigny_pablo_picasso,bobigny_pantin_raymon_queneau,eglise_de_pantin,hoche,porte_de_pantin,ourcq,laumiere,jaures,stalingrad,gare_du_nord,gare_de_l_est,jacques_bonsergent,republique,oberkampf,richard_lenoir,breguet_sabin,bastille,quai_de_la_rapee,gare_dausterlitz,saint_marcel,campo_formio,place_ditalie],[10,2]).
+linha(6,[charles_de_gaulle_etoile,kleber,boissiere,trocadero,passy,bir_hakeim,dupleix,la_motte_picquet_grenelle,cambronne,sevres_lecourbe,pasteur,montparnasse_bienvenue,edgar_quinet,raspail,saint_jacques,glaciere,corvisart,place_ditalie,nationale,chevaleret,quai_de_la_gare,bercy,dugommier,daumesnil,bel_air,picpus,nation],[10,2]).
 
 /* linha 7 sentido mairie_d_ivry */
-linha(7,[la_courneuve_8_Mai_1945,fort_d_aubervilliers,aubervilliers_pantin_quatre_chemins,porte_de_la_villette,corentin_cariou,crimee,riquet,stalingrad,louis_blanc,chateau_landon,gare_de_l_est,poissonniere,cadet,le_peletier,chaussee_d_antin_la_fayette,opera,pyramides,palais_royal_musee_du_louvre,pont_neuf,chatelet,pont_marie,sully_morland,jussieu,place_monge,censier_daubenton,les_gobelins,place_d_italie,tolbiac,maison_blanche,porte_d_italie,porte_de_choisy,porte_d_ivry,pierre_et_marie_curie,mairie_d_ivry]).
+linha(7,[la_courneuve_8_Mai_1945,fort_d_aubervilliers,aubervilliers_pantin_quatre_chemins,porte_de_la_villette,corentin_cariou,crimee,riquet,stalingrad,louis_blanc,chateau_landon,gare_de_l_est,poissonniere,cadet,le_peletier,chaussee_d_antin_la_fayette,opera,pyramides,palais_royal_musee_du_louvre,pont_neuf,chatelet,pont_marie,sully_morland,jussieu,place_monge,censier_daubenton,les_gobelins,place_d_italie,tolbiac,maison_blanche,porte_d_italie,porte_de_choisy,porte_d_ivry,pierre_et_marie_curie,mairie_d_ivry],[10,2]).
 
 /* linha 7 sentido villejuif_louis_aragon */
-linha(7,[la_courneuve_8_Mai_1945,fort_d_aubervilliers,aubervilliers_pantin_quatre_chemins,porte_de_la_villette,corentin_cariou,crimee,riquet,stalingrad,louis_blanc,chateau_landon,gare_de_l_est,poissonniere,cadet,le_peletier,chaussee_d_antin_la_fayette,opera,pyramides,palais_royal_musee_du_louvre,pont_neuf,chatelet,pont_marie,sully_morland,jussieu,place_monge,censier_daubenton,les_gobelins,place_d_italie,tolbiac,maison_blanche,le_kremlin_bicetre,villejuif_leo_lagrange,villejuif_paul_vaillant_couturier,villejuif_louis_aragon]).
+linha(7,[la_courneuve_8_Mai_1945,fort_d_aubervilliers,aubervilliers_pantin_quatre_chemins,porte_de_la_villette,corentin_cariou,crimee,riquet,stalingrad,louis_blanc,chateau_landon,gare_de_l_est,poissonniere,cadet,le_peletier,chaussee_d_antin_la_fayette,opera,pyramides,palais_royal_musee_du_louvre,pont_neuf,chatelet,pont_marie,sully_morland,jussieu,place_monge,censier_daubenton,les_gobelins,place_d_italie,tolbiac,maison_blanche,le_kremlin_bicetre,villejuif_leo_lagrange,villejuif_paul_vaillant_couturier,villejuif_louis_aragon],[10,2]).
 
 /* linha 7 bis sentido pre_saint_gervais*/
-linha(7,[louis_blanc,jaures,bolivar,buttes_chaumont,botzaris,place_des_fetes,pre_saint_gervais]).
+linha(71,[louis_blanc,jaures,bolivar,buttes_chaumont,botzaris,place_des_fetes,pre_saint_gervais],[10,2]).
 
 /* linha 7 bis sentido louis_blanc */
-linha(7,[pre_saint_gervais,danube,botzaris,buttes_chaumont,bolivar,jaures,louis_blanc]).
+linha(71,[pre_saint_gervais,danube,botzaris,buttes_chaumont,bolivar,jaures,louis_blanc],[10,2]).
 
-linha(8,[balard,lourmel,boucicaut,felix_faure,commerce,la_motte_picquet_grenelle,ecole_militaire,la_tour_maubourg,invalides,concorde,madeleine,opera,richelieu_drouot,grands_boulevards,bonne_nouvelle,strasbourg_saint_denis,republique,filles_du_calvaire,saint_sebastien_froissart,chemin_vert,bastille,ledru_rollin,faidherbe_chaligny,reuilly_diderot,montgallet,daumesnil,michel_bizot,porte_doree,porte_de_charenton,liberte,charenton_ecoles,ecole_veterinaire_de_maisons_alfort,maisons_alfort_stade,maisons_alfort_les_juilliottes,creteil_l_echat,creteil_universite,creteil_prefecture,pointe_du_lac]).
-linha(9,[pont_de_sevres,billancourt,marcel_sembat,porte_de_saint_cloud,exelmans,michel_ange_molitor,michel_ange_auteuil,jasmin,ranelagh,la_muette,rue_de_la_pompe,trocadero,iena,alma_marceau,franklin_d_roosevelt,saint_philippe_du_roule,miromesnil,saint_augustin,havre_caumartin,chaussee_d_antin_la_fayette,richelieu_drouot,grands_boulevards,bonne_nouvelle,strasbourg_saint_denis,republique,oberkampf,saint_ambroise,voltaire,charonne,rue_des_boulets,nation,buzenval,maraichers,porte_de_montreuil,robespierre,croix_de_chavaux,mairie_de_montreuil]).
+linha(8,[balard,lourmel,boucicaut,felix_faure,commerce,la_motte_picquet_grenelle,ecole_militaire,la_tour_maubourg,invalides,concorde,madeleine,opera,richelieu_drouot,grands_boulevards,bonne_nouvelle,strasbourg_saint_denis,republique,filles_du_calvaire,saint_sebastien_froissart,chemin_vert,bastille,ledru_rollin,faidherbe_chaligny,reuilly_diderot,montgallet,daumesnil,michel_bizot,porte_doree,porte_de_charenton,liberte,charenton_ecoles,ecole_veterinaire_de_maisons_alfort,maisons_alfort_stade,maisons_alfort_les_juilliottes,creteil_l_echat,creteil_universite,creteil_prefecture,pointe_du_lac],[10,2]).
+linha(9,[pont_de_sevres,billancourt,marcel_sembat,porte_de_saint_cloud,exelmans,michel_ange_molitor,michel_ange_auteuil,jasmin,ranelagh,la_muette,rue_de_la_pompe,trocadero,iena,alma_marceau,franklin_d_roosevelt,saint_philippe_du_roule,miromesnil,saint_augustin,havre_caumartin,chaussee_d_antin_la_fayette,richelieu_drouot,grands_boulevards,bonne_nouvelle,strasbourg_saint_denis,republique,oberkampf,saint_ambroise,voltaire,charonne,rue_des_boulets,nation,buzenval,maraichers,porte_de_montreuil,robespierre,croix_de_chavaux,mairie_de_montreuil],[10,2]).
 
 /* sentido 1 Gare d_austerlitz */
-linha(10,[boulogne_pont_de_saint_cloud,boulogne_jean_jaures,michel_ange_molitor,chardon_lagache,mirabeau,javel_andre_citroen,charles_michels,avenue_emile_zola,la_motte_picquet_grenelle,segur,duroc,vaneau,sevres_babylone,mabillon,odeon,cluny_la_sorbonne,maubert_mutualité,cardinal_lemoine,jussieu,gare_d_austerlitz]).
+linha(10,[boulogne_pont_de_saint_cloud,boulogne_jean_jaures,michel_ange_molitor,chardon_lagache,mirabeau,javel_andre_citroen,charles_michels,avenue_emile_zola,la_motte_picquet_grenelle,segur,duroc,vaneau,sevres_babylone,mabillon,odeon,cluny_la_sorbonne,maubert_mutualité,cardinal_lemoine,jussieu,gare_d_austerlitz],[10,2]).
 
 /* sentido 2 Boulogne pont de saint_cloud */
-linha(10,[gare_d_austerlitz,jussieu,cardinal_lemoine,maubert_mutualité,cluny_la_sorbonne,odeon,mabillon,sevres_babylone,vaneau,duroc,segur,la_motte_picquet_grenelle,avenue_emile_zola,charles_michels,javel_andre_citroen,eglise_d_auteuil,michel_ange_auteuil,porte_d_auteuil,boulogne_jean_jaures,boulogne_pont_de_saint_cloud]).
+linha(10,[gare_d_austerlitz,jussieu,cardinal_lemoine,maubert_mutualité,cluny_la_sorbonne,odeon,mabillon,sevres_babylone,vaneau,duroc,segur,la_motte_picquet_grenelle,avenue_emile_zola,charles_michels,javel_andre_citroen,eglise_d_auteuil,michel_ange_auteuil,porte_d_auteuil,boulogne_jean_jaures,boulogne_pont_de_saint_cloud],[10,2]).
 
-linha(11,[chatelet,hotel_de_ville,rambuteau,arts_et_metiers,republique,goncourt,belleville,pyrenees,jourdain,place_des_fetes,telegraphe,porte_des_lilas,mairie_des_lilas]).
-linha(12,[front_populaire,porte_de_la_chapelle,marx_dormoy,marcadet_poissonniers,jules_joffrin,lamarck_caulaincourt,abesses,pigalle,saint_georges,notre_dame_de_lorette,trinite_d_estienne_d_orves,saint_lazare,madeleine,concorde,assemblee_nationale,solferino,rue_du_bac,sevres_babylone,rennes,notre_dame_des_champs,montparnasse_bienvenue,falguiere,pasteur,volontaires,vaugirard,convention,porte_de_versailles,corentin_celton,mairie_d_issy]).
+linha(11,[chatelet,hotel_de_ville,rambuteau,arts_et_metiers,republique,goncourt,belleville,pyrenees,jourdain,place_des_fetes,telegraphe,porte_des_lilas,mairie_des_lilas],[10,2]).
+linha(12,[front_populaire,porte_de_la_chapelle,marx_dormoy,marcadet_poissonniers,jules_joffrin,lamarck_caulaincourt,abesses,pigalle,saint_georges,notre_dame_de_lorette,trinite_d_estienne_d_orves,saint_lazare,madeleine,concorde,assemblee_nationale,solferino,rue_du_bac,sevres_babylone,rennes,notre_dame_des_champs,montparnasse_bienvenue,falguiere,pasteur,volontaires,vaugirard,convention,porte_de_versailles,corentin_celton,mairie_d_issy],[10,2]).
 
 /* ponto de partida 1 */
-linha(13,[saint_denis_universite,basilique_de_saint_denis,saint_denis_porte_de_paris,carrefour_pleyel,mairie_de_saint_ouen,garibaldi,porte_de_saint,guy_moquet,la_fourche,place_de_clichy,liege,saint_lazare,miromesnil,champs_elysees_clemenceau,invalides,varenne,saint_françois_xavier,duroc,montparnasse_bienvenue,gaite,pernety,plaisance,porte_de_vanves,malakoff_plateau_de_vanves,malakoff_rue_etienne_Dolet,chatillon_montrouge]).
+linha(13,[saint_denis_universite,basilique_de_saint_denis,saint_denis_porte_de_paris,carrefour_pleyel,mairie_de_saint_ouen,garibaldi,porte_de_saint,guy_moquet,la_fourche,place_de_clichy,liege,saint_lazare,miromesnil,champs_elysees_clemenceau,invalides,varenne,saint_françois_xavier,duroc,montparnasse_bienvenue,gaite,pernety,plaisance,porte_de_vanves,malakoff_plateau_de_vanves,malakoff_rue_etienne_Dolet,chatillon_montrouge],[10,2]).
 
 /* ponto de partida 2 */
-linha(13,[asnieres_gennevilliers_les_courtilles,les_agnettes,gabriel_peri,mairie_de_clichy,porte_de_clichy,brochant,la_fourche,place_de_clichy,liege,saint_lazare,miromesnil,champs_elysees_clemenceau,invalides,varenne,saint_françois_xavier,duroc,montparnasse_bienvenue,gaite,pernety,plaisance,porte_de_vanves,malakoff_plateau_de_vanves,malakoff_rue_etienne_Dolet,chatillon_montrouge]).
+linha(13,[asnieres_gennevilliers_les_courtilles,les_agnettes,gabriel_peri,mairie_de_clichy,porte_de_clichy,brochant,la_fourche,place_de_clichy,liege,saint_lazare,miromesnil,champs_elysees_clemenceau,invalides,varenne,saint_françois_xavier,duroc,montparnasse_bienvenue,gaite,pernety,plaisance,porte_de_vanves,malakoff_plateau_de_vanves,malakoff_rue_etienne_Dolet,chatillon_montrouge],[10,2]).
 
-linha(14,[saint_lazare,madeleine,pyramides,chatelet,gare_de_lyon,bercy,cour_saint_emilion,bibliotheque_françois_mitterrand,olympiades]).
+linha(14,[saint_lazare,madeleine,pyramides,chatelet,gare_de_lyon,bercy,cour_saint_emilion,bibliotheque_françois_mitterrand,olympiades],[10,2]).
 
 /*  Pontos de interesse turísticos  */
 % exemplo: ponto_de_interesse(interesse,estaçao_proxima,[linhas],[[dias_abertos],horainicio,horafim]).
