@@ -24,7 +24,7 @@ menu:-  write(' *************** MENU **************** '),nl,
 	exeMenu(Op).
 
 exeMenu(Op):- Op == 1, carregarBase, menu,!;
-              Op == 2, horarios ,menu,!;
+              Op == 2, horarios,linhaFrequencia ,menu,!;
 	      Op == 3, cacularTrajetos, menu,!;
 	      Op == 4, pontosInteresse, menu,!;
 	      Op == 5, planearVisitas, menu,!;
@@ -43,6 +43,19 @@ horarios:-get_ano(Ano),
 	  write(Dia),write('/'),write(Mes),write('/'),write(Ano),write(', '),write(DS),nl,
 	  verificaLinhaAberta(Estado),
 	  write('O metro encontra-se: '), write(Estado),nl.
+
+linhaFrequencia:-
+	write('Introduza o numero da linha que pretende saber a frequencia'),nl,
+	read(Linha),
+	linhaFrequencia(Linha).
+linhaFrequencia(Linha):-
+	get_hora(Hora),
+	(Hora > 5, Hora < 9),
+	linha(Linha,Lestacoes,[_|HoraPonta]),
+	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de ponta, é de,'), write(HoraPonta),nl,write('Linha: '),write(Lestacoes).
+linhaFrequencia(Linha):-
+	linha(Linha,Lestacoes,[HoraNormal|_]),
+	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de Normal, é de,'), write(HoraNormal),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
 
 
 /* --- Calcular os diferentes Caminhos --- */
@@ -87,13 +100,14 @@ planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
 		 write(' *************************************** '),nl,
 		 read(Op),
 		 exeVis(Op).
-		 
-exeVis(Op):- 
+
+exeVis(Op):-
 		Op == 1, visitasMeioDia, true,!;
 		Op == 2, visitasDiaInteiro ,true,!;
 		Op == 0, true,!;
 		menu,!.
-		 
+
+/*
 visitasMeioDia:-
 		write('Locais que pretende visitar: '),nl,
 		read(Locais),
@@ -107,8 +121,9 @@ visitasDiaInteiro:-
 		planoVisitasDiaInteiro(Locais,Plano),
 		write('O Plano é o seguinte:'),nl,
 		write('teste'),nl,nl.
+*/
 
-/* teste planear visitas		 
+/* teste planear visitas
 planearVisitas2:-
 		open('visitas.txt',write,Stream),
 		write(Stream,'teste visitas'), nl(Stream),
@@ -185,18 +200,14 @@ verificaFuso(Estado):-
 
 
 
-/* --- 1- Permitir a modelação da rede de metro, com indicação das linhas,
-estações, cruzamentos e direção. --- */
+/* --- globais --- */
 
-/* Metendo o numero da linha e estação final indicara a ordem correcta das linhas */
-direcao(Num,EstacaoFim,LF):-
-	linha(Num,L),
-	direcao1(L,EstacaoFim,LF).
-
-direcao1([H|T],H,LF):-
-	reverse([H|T],LF),!.
-direcao1(L,_,L).
-
+cria_caminho(_,[],[]).
+cria_caminho(Estacoes,[Destino|Destinos],LR):-
+	member(Destino,Estacoes),!,
+	cria_caminho(Estacoes,Destinos,LR).
+cria_caminho(Estacoes,[Destino|Destinos],[[Destino|Estacoes]|LR]):-
+	cria_caminho(Estacoes,Destinos,LR).
 
 
 
@@ -205,8 +216,46 @@ direcao1(L,_,L).
 
 
 
-/* --- 3-Dada a hora de comparência numa dada estação determinar o trajeto para chegar a outra estação de acordo com diferentes critérios:
-(II) Mais Rápido --- */
+/* --- 3-Dada a hora de comparência numa dada estação determinar o trajeto para chegar a outra estação de acordo com diferentes critérios: --- */
+
+/* --- (I)  Menos Trocas ---*/
+
+
+caminho_menos_trocas(EstacaoInicial,EstacaoFinal,LR):-
+	estacao(EstacaoInicial),
+	estacao(EstacaoFinal),
+	verificaMesmaLinha(EstacaoInicial,NlinhasI),
+	verificaMesmaLinha(EstacaoFinal,NlinhasF),
+	comparaLinhas(NlinhasI,NlinhasF,Linha),
+	imprimeLinha(Linha,EstacaoInicial,EstacaoFinal,LR).
+
+
+verificaMesmaLinha(EI,Nlinhas):-
+	findall(Y,(linha(Y,Estacoes,_), member(EI,Estacoes)),Nlinhas).
+
+
+comparaLinhas([],[],_):-fail.
+
+comparaLinhas([H|_],NestacoesF,H):-
+	member(H,NestacoesF).
+
+comparaLinhas([_|T],NE,_):-
+	comparaLinhas(T,NE,_).
+
+
+imprimeLinha(Linha,EI,EF,LF):-
+	linha(Linha,Estacoes,_),
+	imprimeLinha1(Estacoes,EI,EF,LF).
+
+
+imprimeLinha1([H|T],H,EF,[H|T1]):-
+	imprimeLinha1(T,H,EF,T1).
+/*
+imprimeLinha1([H|T],EI,H,[H|T]):-
+*/
+
+/* ---- (II) Mais Rápido --- */
+caminho_mais_rapido(EstacaoInicial,EstacaoInicial,[EstacaoInicial]).
 
 caminho_mais_rapido(EstacaoInicial,EstacaoFinal,LR):-
 	estacao(EstacaoInicial),
@@ -214,14 +263,6 @@ caminho_mais_rapido(EstacaoInicial,EstacaoFinal,LR):-
 	findall(Y,(liga(EstacaoInicial,Y,_);liga(Y,EstacaoInicial,_)),LEstacaoDirectas),
 	cria_caminho([EstacaoInicial],LEstacaoDirectas,LC),
 	determina_caminho_curto(EstacaoFinal,LC,LR).
-
-
-cria_caminho(_,[],[]).
-cria_caminho(Estacoes,[Destino|Destinos],LR):-
-	member(Destino,Estacoes),
-	cria_caminho(Estacoes,Destinos,LR).
-cria_caminho(Estacoes,[Destino|Destinos],[[Destino|Estacoes]|LR]):-
-	cria_caminho(Estacoes,Destinos,LR).
 
 
 determina_caminho_curto(EstacaoDestino,[[EstacaoDestino|L]|_],R):-
@@ -236,12 +277,12 @@ determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
 /* --- 4-Permitir a modelação de alguns pontos de interesse turísticos com a indicação de atributos
  como horário de funcionamento (dias e horas), tempo estimado de visita, localização
  (estação ou estações de metro mais próximas) --- */
-
+/*
  planoVisitasMeioDia(Locais,Plano).
- 
+
  planoVisitasDiaInteiro(Locais,Plano).
- 
- 
+*/
+
 /* --- 5-Planear visitas de meio dia (5 horas) ou de dia inteiro (8 horas). Recebe a indicação dos
 locais que se pretendem visitar e elabora um plano de visita usando o
 metro como meio de transporte.--- */
