@@ -107,13 +107,33 @@ exeVis(Op):-
 		Op == 0, true,!;
 		menu,!.
 
-/*
+		
 visitasMeioDia:-
 		write('Locais que pretende visitar: '),nl,
-		read(Locais),
+		input_to_atom_list(Locais), 
+		%read(Locais),
 		planoVisitasMeioDia(Locais,Plano),
 		write('O Plano é o seguinte:'),nl,
-		write('teste'),nl,nl.
+		write(Plano),nl,nl.
+
+input_to_atom_list(L) :-
+    read_line_to_codes(user_input, Input),
+    string_to_atom(Input,IA),
+    tail_not_mark(IA, R, T),
+    atomic_list_concat(XL, ',', R),
+    maplist(split_atom(' '), XL, S),
+    append(S, [T], L).	
+
+is_period(.).
+is_period(?).
+is_period(!).
+
+split_atom(S, A, L) :- atomic_list_concat(XL, S, A), delete(XL, '', L).
+
+%if tale is ? or ! or . then remove
+%A:Atom, R:Removed, T:special mark
+tail_not_mark(A, R, T) :- atom_concat(R, T, A), is_period(T),!. 
+tail_not_mark(A, R, '') :- A = R.	
 
 visitasDiaInteiro:-
 		write('Locais que pretende visitar: '),nl,
@@ -121,7 +141,7 @@ visitasDiaInteiro:-
 		planoVisitasDiaInteiro(Locais,Plano),
 		write('O Plano é o seguinte:'),nl,
 		write('teste'),nl,nl.
-*/
+
 
 /* teste planear visitas
 planearVisitas2:-
@@ -286,15 +306,25 @@ determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
 /* --- 4-Permitir a modelação de alguns pontos de interesse turísticos com a indicação de atributos
  como horário de funcionamento (dias e horas), tempo estimado de visita, localização
  (estação ou estações de metro mais próximas) --- */
-/*
- planoVisitasMeioDia(Locais,Plano).
-
- planoVisitasDiaInteiro(Locais,Plano).
-*/
 
 /* --- 5-Planear visitas de meio dia (5 horas) ou de dia inteiro (8 horas). Recebe a indicação dos
 locais que se pretendem visitar e elabora um plano de visita usando o
 metro como meio de transporte.--- */
+
+/*
+ Recebo a lista de locais com um ou mais locais
+ Pego no primeiro local e vejo qual é a estação mais proxima do local
+ vou buscar o caminho mais rapido para chegar a esse local
+ Listo todas as estaçoes para chegar ao local
+ Adiciono tempo que demorou o percuro a uma variavel tempo total
+ Verifico se ja passou do limite
+ Se ja passou imprimo que o plano é o seguinte
+ Senao continuo a procurar na lista e volto a fazer o mesmo
+*/
+
+planoVisitasMeioDia(Locais,Plano):-planoVisitasMeioDia(Locais,Locais).
+
+planoVisitasDiaInteiro(Locais,Plano).
 
 /* --- 6-Planear uma visita que começa e acaba no mesmo local usando o metro como meio de transporte
  e que deverá ser exportada para um ficheiro de texto. Este ficheiro deverá conter os trajetos a
