@@ -102,8 +102,8 @@ planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
 		 exeVis(Op).
 
 exeVis(Op):-
-		Op == 1, visitasMeioDia, true,!;
-		Op == 2, visitasDiaInteiro ,true,!;
+		Op == 1, /*visitasMeioDia,*/ true,!;
+		Op == 2, /*visitasDiaInteiro ,*/true,!;
 		Op == 0, true,!;
 		menu,!.
 
@@ -224,37 +224,46 @@ cria_caminho(Estacoes,[Destino|Destinos],[[Destino|Estacoes]|LR]):-
 caminho_menos_trocas(EstacaoInicial,EstacaoFinal,LR):-
 	estacao(EstacaoInicial),
 	estacao(EstacaoFinal),
-	verificaMesmaLinha(EstacaoInicial,NlinhasI),
-	verificaMesmaLinha(EstacaoFinal,NlinhasF),
-	comparaLinhas(NlinhasI,NlinhasF,Linha),
-	imprimeLinha(Linha,EstacaoInicial,EstacaoFinal,LR).
+	verificaLinhasEstacao(EstacaoFinal,LestacaoFinal),
+	findall(Y,(liga(EstacaoInicial,Y,_);liga(Y,EstacaoInicial,_)),LEstacaoDirectas),
+	cria_caminho([EstacaoInicial],LEstacaoDirectas,LC),
+	determina_menos_paragens(EstacaoFinal,LC,LestacaoFinal,LR).
+
+determina_menos_paragens(EstacaoDestino,[[EstacaoDestino|L]|_],_,R):-
+	reverse([EstacaoDestino|L],R).
+
+determina_menos_paragens(EstacaoDestino,[[Destino|Destinos]|LR],LestacaoFinal,L):-
+	verificaLinhasEstacao(Destino,LlinhasDestino),
+	comparaNlinhas(LlinhasDestino,LestacaoFinal,Linha),
+	findall(X,((liga(Destino,X,_);liga(X,Destino,_)),linha(Linha,_,_)),LL),
+	cria_caminho([Destino|Destinos],LL,Lcaminho),
+	append(LR,Lcaminho,Lappend),
+	determina_menos_paragens(EstacaoDestino,Lappend,Linha,L).
+
+determina_menos_paragens(EstacaoDestino,[[Destino|Destinos]|LR],LestacaoFinal,L):-
+	findall(X,(liga(Destino,X,_);liga(X,Destino,_)),LL),
+	cria_caminho([Destino|Destinos],LL,Lcaminho),
+	append(LR,Lcaminho,Lappend),
+	determina_menos_paragens(EstacaoDestino,Lappend,LestacaoFinal,L).
 
 
-verificaMesmaLinha(EI,Nlinhas):-
-	findall(Y,(linha(Y,Estacoes,_), member(EI,Estacoes)),Nlinhas).
 
 
-comparaLinhas([],[],_):-fail.
+verificaLinhasEstacao(Estacao,L):-
+	findall(Y,(linha(Y,Estacoes,_), member(Estacao,Estacoes)),L).
 
-comparaLinhas([H|_],NestacoesF,H):-
-	member(H,NestacoesF).
-
-comparaLinhas([_|T],NE,_):-
-	comparaLinhas(T,NE,_).
-
-
-imprimeLinha(Linha,EI,EF,LF):-
-	linha(Linha,Estacoes,_),
-	imprimeLinha1(Estacoes,EI,EF,LF).
+comparaNlinhas([H|_],LestF,H):-
+	member(H,LestF),!.
+comparaNlinhas([_|T],LestF,Ne):-
+	comparaNlinhas(T,LestF,Ne).
 
 
-imprimeLinha1([H|T],H,EF,[H|T1]):-
-	imprimeLinha1(T,H,EF,T1).
-/*
-imprimeLinha1([H|T],EI,H,[H|T]):-
-*/
+
+
+
 
 /* ---- (II) Mais Rápido --- */
+
 caminho_mais_rapido(EstacaoInicial,EstacaoInicial,[EstacaoInicial]).
 
 caminho_mais_rapido(EstacaoInicial,EstacaoFinal,LR):-

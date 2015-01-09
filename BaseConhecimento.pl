@@ -890,11 +890,6 @@ liga(bercy,cour_saint_emilion,1).
 liga(cour_saint_emilion,bibliotheque_françois_mitterrand,1).
 liga(bibliotheque_françois_mitterrand,olympiades,1).
 
-/* linhas teste */
-
-liga(pont_de_neuilly,porte_dauphine,1).
-
-liga(victor_hugo,boissiere,1).
 
 
 
