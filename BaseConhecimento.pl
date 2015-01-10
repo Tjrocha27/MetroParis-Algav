@@ -890,9 +890,6 @@ liga(bercy,cour_saint_emilion,1).
 liga(cour_saint_emilion,bibliotheque_françois_mitterrand,1).
 liga(bibliotheque_françois_mitterrand,olympiades,1).
 
-
-
-
 /* direçoes */
 
 direcao(1,[la_defense,chateau_de_vincennes]).
@@ -1115,16 +1112,15 @@ distancia_a_pe(montparnasse_bienvenue,12,13,4).
 distancia_a_pe(saint_lazare,13,14,2).
 
 /*  Pontos de interesse turísticos  */
-% exemplo: ponto_de_interesse(interesse,estaçao_proxima,[linhas],[[dias_abertos],horainicio,horafim]).
+% exemplo: ponto_de_interesse(interesse,estaçao_proxima,tempo_visita,[linhas],[[dias_abertos],horainicio,horafim]).
 
-ponto_de_interesse(sacre_coeur_mont_martre,anvers,2,[[1,2,3,4,5,6,7],06:00,22:30]).
-ponto_de_interesse(city_hall_of_paris,hotel_de_ville,[1,11],[[1,2,3,4,5],00:01,23:59]).
-ponto_de_interesse(eiffel_tower,bir_hakeim,6,[[1,2,3,4,5,6,7],09:30,23:00]).
-% ponto_de_interesse(moulin_rouge,pigalle,[2,12],).
-ponto_de_interesse(arc_de_triomphe,charles_de_gaulle_etoile,[1,2,6],[[1,2,3,4,5,6,7],10:00,22:30]).
-ponto_de_interesse(royal_palace_and_louvre,palais_royal_musee_du_louvre,[1,7],[[1,3,4,5,6,7],09:00,18:00]).
-ponto_de_interesse(notre_dame,saint_michel,[4],[[1,2,3,4,5,6,7],08:00,18:45]).
-ponto_de_interesse(boulevard_Haussmann,havre_caumartin,[3,9],[[1,2,3,4,5,6,7],00:00,23:59]).
-ponto_de_interesse(champs_elysees,champs_elysees_clemenceau,[1,13],[[[1,2,3,4,5,6],10:00,23:45],[7],12:00,23:45]).
+ponto_de_interesse(sacre_coeur_mont_martre,anvers,30,[2],[1,2,3,4,5,6,7],[[6,0,22,0],[6,0,22,0],[6,0,22,0]]).
+ponto_de_interesse(city_hall_of_paris,hotel_de_ville,70,[1,11],[1,2,3,4,5],[[0,0,24,0],[],[]]).
+ponto_de_interesse(eiffel_tower,bir_hakeim,70,[6],[1,2,3,4,5,6,7],[[9,0,23,0],[9,0,23,0],[9,0,23,0]]).
+ponto_de_interesse(arc_de_triomphe,charles_de_gaulle_etoile,40,[1,2,6],[1,2,3,4,5,6,7],[[10,0,22,0],[10,0,22,0],[10,0,22,0]]).
+ponto_de_interesse(royal_palace_and_louvre,palais_royal_musee_du_louvre,30,[1,7],[1,3,4,5,6,7],[[9,0,18,0],[9,0,18,0],[9,0,18,0]]).
+ponto_de_interesse(notre_dame,saint_michel,60,[4],[1,2,3,4,5,6,7],[[8,0,19,0],[8,0,19,0],[8,0,19,0]]).
+ponto_de_interesse(boulevard_Haussmann,havre_caumartin,40,[3,9],[1,2,3,4,5,6,7],[[0,0,24,0],[0,0,24,0],[0,0,24,0]]).
+ponto_de_interesse(champs_elysees,champs_elysees_clemenceau,30,[1,13],[1,2,3,4,5,6],[[10,0,24,0],[10,0,24,0],[12,0,23,0]]).
 
 /* --- FIM --- */
