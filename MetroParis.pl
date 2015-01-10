@@ -46,22 +46,21 @@ linhaFrequencia:-
 	write('Introduza o numero da linha que pretende saber a frequencia'),nl,
 	read(Linha),
 	linhaFrequencia(Linha).
+
 linhaFrequencia(Linha):-
 	get_hora(Hora),
 	(Hora > 17, Hora < 21),
 	linha(Linha,Lestacoes,[_|HoraPonta]),
 	get_Num(HoraPonta,HoraPonta1),
 	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de ponta, é de,'), write(HoraPonta1),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
+
 linhaFrequencia(Linha):-
 	linha(Linha,Lestacoes,[HoraNormal|_]),
 	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de Normal, é de,'), write(HoraNormal),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
 
-<<<<<<< HEAD
-=======
 
 get_Num([H|_],H).
 
->>>>>>> fe0f79e7122c824c134e26560273e34cb4a0534a
 /* --- Calcular os diferentes Caminhos --- */
 cacularTrajetos:-write(' ******** Calcular o meu Trajeto ******* '),nl,
 	         write(' *				       * '),nl,
@@ -86,8 +85,8 @@ menosTrocas:- write('Insira a Sua estação Actual'),nl,
 	     read(EF),
 	     caminho_menos_trocas(EA,EF,LR),
 	     write('O caminho com menos trocas é:'),nl,
-	     write(LR),nl,nl.		  
-		  
+	     write(LR),nl,nl.
+
 maisRapido:- write('Insira a Sua estação Actual'),nl,
 	     read(EA),
 	     write('Insira a sua estação Final'),nl,
@@ -103,7 +102,7 @@ menorPercursoPe :- write('Insira a Sua estação Actual'),nl,
 	     caminho_menor_perc_pe(EA,EF,LR),
 	     write('O caminho com menor percurso a pé é:'),nl,
 	     write(LR),nl,nl.
-		 
+
 /* --- Pontos de interesse e Visitas --- */
 
 pontosInteresse.
@@ -126,58 +125,24 @@ exeVis(Op):-
 
 
 visitasMeioDia:-
-<<<<<<< HEAD
-		inserirLocaisVisita(Locais),
-		write(Locais).
+	        write('Insira um local de cada vez(Para terminar vazio): '),nl,
+		read(Locais1),
+	        atomic_list_concat(Locais,',',Locais1),
+		write(Locais),nl,
 		write('Insira a Sua estação Actual: '),nl,
-	    read(EA),
-		TempoVisitaAcumulado is 0,
-		planoVisitasMeioDia(Locais,EA,TempoVisitaAcumulado,Plano),
-		escrevePlano(Locais,TempoVisitaAcumulado,Plano).
+		read(EA),
+		planoVisitasMeioDia(Locais,EA,0,Plano),
+		escrevePlano(Locais,Plano).
 
-escrevePlano([],TempoVisitaAcumulado,[]):-write('O seu tempo gasto foi de: ', (TempoVisitaAcumulado)),nl.
-escrevePlano([H|T],TempoVisitaAcumulado,[H1|T1]):-
+escrevePlano([],[]).
+escrevePlano([H|T],[H1|T1]):-
 		write('Para visitar o local:'),write(H),
 		write('siga este caminho:'),nl,
 		write(H1), nl,
-		escrevePlano(T,TempoVisitaAcumulado,T1).
-				
-inserirLocaisVisita(Local1):-
-		write('Insira um local de cada vez(Para terminar vazio): '),nl,
-		read(Local),nl,!,		
-		Local \== 0,
-		append([Local],Local1,LocalFinal),!,
-		inserirLocaisVisita(LocalFinal).
-inserirLocaisVisita(LF):-reverse(LF).
-		
-		
-=======
-		write('Locais que pretende visitar: '),nl,
-		input_to_atom_list(Locais),
-		%read(Locais),
-		planoVisitasMeioDia(Locais,Plano),
-		write('O Plano é o seguinte:'),nl,
-		write(Plano),nl,nl.
+		escrevePlano(T,T1).
 
->>>>>>> fe0f79e7122c824c134e26560273e34cb4a0534a
-input_to_atom_list(L) :-
-    read_line_to_codes(user_input, Input),
-    string_to_atom(Input,IA),
-    tail_not_mark(IA, R, T),
-    atomic_list_concat(XL, ',', R),
-    maplist(split_atom(' '), XL, S),
-    append(S, [T], L).
 
-is_period(.).
-is_period(?).
-is_period(!).
 
-split_atom(S, A, L) :- atomic_list_concat(XL, S, A), delete(XL, '', L).
-
-%if tale is ? or ! or . then remove
-%A:Atom, R:Removed, T:special mark
-tail_not_mark(A, R, T) :- atom_concat(R, T, A), is_period(T),!.
-tail_not_mark(A, R, '') :- A = R.
 
 visitasDiaInteiro:-
 		write('Locais que pretende visitar: '),nl,
@@ -325,8 +290,8 @@ determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
 	cria_caminho([Destino|Destinos],LL,Lcaminho),
 	append(LR,Lcaminho,Lappend),
 	determina_caminho_curto(EstacaoDestino,Lappend,L).
-	
-/* ---- (III) Menor Percurso a Pé --- */	
+
+/* ---- (III) Menor Percurso a Pé --- */
 
 caminho_menor_perc_pe(EstacaoInicial,EstacaoFinal,LR):-
 	estacao(EstacaoInicial),
@@ -334,7 +299,7 @@ caminho_menor_perc_pe(EstacaoInicial,EstacaoFinal,LR):-
 	findall(Y,(liga(EstacaoInicial,Y,_);liga(Y,EstacaoInicial,_)),LEstacaoDirectas),
 	cria_caminho([EstacaoInicial],LEstacaoDirectas,LC),
 	determina_caminho_curto(EstacaoFinal,LC,LR).
-		
+
 
 /* --- 4-Permitir a modelação de alguns pontos de interesse turísticos com a indicação de atributos
  como horário de funcionamento (dias e horas), tempo estimado de visita, localização
@@ -361,12 +326,13 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 	caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),
 	length(LR,NLocais),
 	TempoAcumuladoNaViagem is NLocais * 2,
-	TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,  
+	TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
 	TempoVisitaAcumulado1 < 360,
 	planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T).
-	
-planoVisitasMeioDia([],_,_,[]).
-	
+
+planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]):-
+	write('Tempo gasto de : '),write(TempoVisitaAcumulado1),write(' Minutos'),nl.
+
 /* --- 6-Planear uma visita que começa e acaba no mesmo local usando o metro como meio de transporte
  e que deverá ser exportada para um ficheiro de texto. Este ficheiro deverá conter os trajetos a
  fazer e a estimativa das horas parciais e de termino da visita. Deverão ser fornecidos os locais
