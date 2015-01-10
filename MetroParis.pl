@@ -131,7 +131,7 @@ visitasMeioDia:-
 		write(Locais),nl,
 		write('Insira a Sua estação Actual: '),nl,
 		read(EA),
-		planoVisitasMeioDia(Locais,EA,0,Plano),
+		planoVisitasMeioDia(Locais,EA,0,Plano),!,
 		escrevePlano(Locais,Plano).
 
 escrevePlano([],[]).
@@ -327,11 +327,16 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 	length(LR,NLocais),
 	TempoAcumuladoNaViagem is NLocais * 2,
 	TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
-	TempoVisitaAcumulado1 < 360,
+	(	TempoVisitaAcumulado1 < 200;
+	        planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[])
+	),
 	planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T).
+
 
 planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]):-
 	write('Tempo gasto de : '),write(TempoVisitaAcumulado1),write(' Minutos'),nl.
+
+
 
 /* --- 6-Planear uma visita que começa e acaba no mesmo local usando o metro como meio de transporte
  e que deverá ser exportada para um ficheiro de texto. Este ficheiro deverá conter os trajetos a
