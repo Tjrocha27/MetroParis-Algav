@@ -48,13 +48,20 @@ linhaFrequencia:-
 	linhaFrequencia(Linha).
 linhaFrequencia(Linha):-
 	get_hora(Hora),
-	(Hora > 5, Hora < 9),
+	(Hora > 17, Hora < 21),
 	linha(Linha,Lestacoes,[_|HoraPonta]),
-	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de ponta, é de,'), write(HoraPonta),nl,write('Linha: '),write(Lestacoes).
+	get_Num(HoraPonta,HoraPonta1),
+	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de ponta, é de,'), write(HoraPonta1),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
 linhaFrequencia(Linha):-
 	linha(Linha,Lestacoes,[HoraNormal|_]),
 	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de Normal, é de,'), write(HoraNormal),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
 
+<<<<<<< HEAD
+=======
+
+get_Num([H|_],H).
+
+>>>>>>> fe0f79e7122c824c134e26560273e34cb4a0534a
 /* --- Calcular os diferentes Caminhos --- */
 cacularTrajetos:-write(' ******** Calcular o meu Trajeto ******* '),nl,
 	         write(' *				       * '),nl,
@@ -117,8 +124,9 @@ exeVis(Op):-
 		Op == 0, true,!;
 		menu,!.
 
-		
+
 visitasMeioDia:-
+<<<<<<< HEAD
 		inserirLocaisVisita(Locais),
 		write(Locais).
 		write('Insira a Sua estação Actual: '),nl,
@@ -143,13 +151,22 @@ inserirLocaisVisita(Local1):-
 inserirLocaisVisita(LF):-reverse(LF).
 		
 		
+=======
+		write('Locais que pretende visitar: '),nl,
+		input_to_atom_list(Locais),
+		%read(Locais),
+		planoVisitasMeioDia(Locais,Plano),
+		write('O Plano é o seguinte:'),nl,
+		write(Plano),nl,nl.
+
+>>>>>>> fe0f79e7122c824c134e26560273e34cb4a0534a
 input_to_atom_list(L) :-
     read_line_to_codes(user_input, Input),
     string_to_atom(Input,IA),
     tail_not_mark(IA, R, T),
     atomic_list_concat(XL, ',', R),
     maplist(split_atom(' '), XL, S),
-    append(S, [T], L).	
+    append(S, [T], L).
 
 is_period(.).
 is_period(?).
@@ -159,8 +176,8 @@ split_atom(S, A, L) :- atomic_list_concat(XL, S, A), delete(XL, '', L).
 
 %if tale is ? or ! or . then remove
 %A:Atom, R:Removed, T:special mark
-tail_not_mark(A, R, T) :- atom_concat(R, T, A), is_period(T),!. 
-tail_not_mark(A, R, '') :- A = R.	
+tail_not_mark(A, R, T) :- atom_concat(R, T, A), is_period(T),!.
+tail_not_mark(A, R, '') :- A = R.
 
 visitasDiaInteiro:-
 		write('Locais que pretende visitar: '),nl,
