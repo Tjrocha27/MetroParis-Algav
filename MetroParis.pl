@@ -61,6 +61,13 @@ linhaFrequencia(Linha):-
 
 get_Num([H|_],H).
 
+get_prox([H|T],H,_):-
+	T==[].
+get_prox([H|_],H,2).
+get_prox([_|T],_,Cont):-
+	Cont1 is Cont +1,
+	get_prox(T,_,Cont1).
+
 /* --- Calcular os diferentes Caminhos --- */
 cacularTrajetos:-write(' ******** Calcular o meu Trajeto ******* '),nl,
 	         write(' *				       * '),nl,
@@ -131,10 +138,17 @@ visitasMeioDia:-
 		write(Locais),nl,
 		write('Insira a Sua estação Actual: '),nl,
 		read(EA),
-		planoVisitasMeioDia(Locais,EA,0,Plano),!,
+		get_Num(Locais,Primeiro),
+		ponto_de_interesse(Primeiro,EstacaoProxima,TV,_,_,_),
+		% write(TempoVisitaLocal),
+		caminho_mais_rapido(EA,EstacaoProxima,LR),
+		length(LR,NLocais),
+		TempoAcumuladoNaViagem is NLocais * 2,
+		TempoAcumuladoNaViagem1 is TempoAcumuladoNaViagem + TV,
+		planoVisitasMeioDia(Locais,EA,TempoAcumuladoNaViagem1,Plano),!,
 		escrevePlano(Locais,Plano).
 
-escrevePlano([],[]).
+escrevePlano(_,[]).
 escrevePlano([H|T],[H1|T1]):-
 		write('Para visitar o local:'),write(H),
 		write('siga este caminho:'),nl,
@@ -321,16 +335,19 @@ metro como meio de transporte.--- */
 */
 
 planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
-	ponto_de_interesse(Local,EstacaoProxima,TempoVisitaLocal,_,_,_),
+	ponto_de_interesse(Local,EstacaoProxima,_,_,_,_),
+	get_prox(Resto,Segundo,1),
+	ponto_de_interesse(Segundo,EstacaoProximaSegundo,TempoVisitaLocal,_,_,_),
 	% write(TempoVisitaLocal),
 	caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),
-	length(LR,NLocais),
+	caminho_mais_rapido(EstacaoProxima,EstacaoProximaSegundo,CR),
+	length(CR,NLocais),
 	TempoAcumuladoNaViagem is NLocais * 2,
 	TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
-	(	TempoVisitaAcumulado1 < 200;
+	(	TempoVisitaAcumulado1 < 360,
+		planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T);
 	        planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[])
-	),
-	planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T).
+	).
 
 
 planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]):-
