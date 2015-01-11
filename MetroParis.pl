@@ -78,7 +78,7 @@ cacularTrajetos:-write(' ******** Calcular o meu Trajeto ******* '),nl,
 		 write(' * 1- Menos Trocas                     * '),nl,
 		 write(' * 2- Mais Rapido                      * '),nl,
 		 write(' * 3- Menor Percurso a Pe              * '),nl,
-		 write(' * 0- Menu Anterior                    * '),nl,
+		 write(' * 0- Menu                             * '),nl,
 		 write(' *				       * '),nl,
 		 write(' *************************************** '),nl,
 		 read(Op),
@@ -122,7 +122,8 @@ planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
 	         write(' *				       * '),nl,
 		 write(' * 1- Visitas de meio dia(5 horas)     * '),nl,
 		 write(' * 2- Visitas de dia inteiro(8 horas)  * '),nl,
-		 write(' * 0- Menu Anterior                    * '),nl,
+		 write(' * 3- A partir de um Local	       * '),nl,
+		 write(' * 0- Menu                             * '),nl,
 		 write(' *				       * '),nl,
 		 write(' *************************************** '),nl,
 		 read(Op),
@@ -131,6 +132,7 @@ planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
 exeVis(Op):-
 		Op == 1, visitasMeioDia, true,!;
 		Op == 2, visitasDiaInteiro ,true,!;
+		op == 3, partirDeUmLocal,true,!;
 		Op == 0, true,!;
 		menu,!.
 
@@ -139,7 +141,6 @@ visitasMeioDia:-
 	        write('Insira um local de cada vez(Para terminar vazio): '),nl,
 		read(Locais1),
 	        atomic_list_concat(Locais,',',Locais1),
-		write(Locais),nl,
 		write('Insira a Sua estação Actual: '),nl,
 		read(EA),
 		get_Num(Locais,Primeiro),
@@ -163,7 +164,7 @@ escrevePlano([H|T],[H1|T1]):-
 
 
 visitasDiaInteiro:-
-		write('Insira um local de cada vez(Para terminar vazio): '),nl,
+		write('Insira os locais que pretende visitar dentro de Plicas: '),nl,
 		read(Locais1),
 	        atomic_list_concat(Locais,',',Locais1),
 		write(Locais),nl,
@@ -179,6 +180,23 @@ visitasDiaInteiro:-
 		planoVisitasDiaInteiro(Locais,EA,TempoAcumuladoNaViagem1,Plano),!,
 		escrevePlano(Locais,Plano).
 
+
+partirDeUmLocal:-
+	         write(' ********* A partir de um Local ******** '),nl,
+	         write(' *				       * '),nl,
+		 write(' * 1- Ponto de Interesse               * '),nl,
+		 write(' * 2- Estação de Metro                 * '),nl,
+		 write(' * 0- Menu                             * '),nl,
+		 write(' *				       * '),nl,
+		 write(' *************************************** '),nl,
+		 read(Op),
+		 exeLocal(Op).
+
+exeLocal(Op):-
+		Op == 1, aPartirDeUmInteresse, true,!;
+		Op == 2, aPartirDoMetro,true,!;
+		Op == 0, true,!;
+		menu,!.
 
 
 /* teste planear visitas
@@ -274,31 +292,36 @@ cria_caminho(Estacoes,[Destino|Destinos],[[Destino|Estacoes]|LR]):-
 caminho_menos_trocas(EstacaoInicial,EstacaoFinal,LR):-
 	estacao(EstacaoInicial),
 	estacao(EstacaoFinal),
-	verificaMesmaLinha(EstacaoInicial,NlinhasI),
-	verificaMesmaLinha(EstacaoFinal,NlinhasF),
-	comparaLinhas(NlinhasI,NlinhasF,Linha),
-	imprimeLinha(Linha,EstacaoInicial,EstacaoFinal,LR).
+	verificaLinhasEstacao(EstacaoFinal,LestacaoFinal),
+	findall(Y,(liga(EstacaoInicial,Y,_);liga(Y,EstacaoInicial,_)),LEstacaoDirectas),
+	cria_caminho([EstacaoInicial],LEstacaoDirectas,LC),
+	determina_menos_paragens(EstacaoFinal,LC,LestacaoFinal,LR).
 
-verificaMesmaLinha(EI,Nlinhas):-
-	findall(Y,(linha(Y,Estacoes,_), member(EI,Estacoes)),Nlinhas).
+determina_menos_paragens(EstacaoDestino,[[EstacaoDestino|L]|_],_,R):-
+    reverse([EstacaoDestino|L],R).
 
-comparaLinhas([],[],_):-fail.
+determina_menos_paragens(EstacaoDestino,[[Destino|Destinos]|LR],LestacaoFinal,L):-
+    verificaLinhasEstacao(Destino,LlinhasDestino),
+    comparaNlinhas(LlinhasDestino,LestacaoFinal,Linha),
+    findall(X,((liga(Destino,X,_);liga(X,Destino,_)),linha(Linha,_,_)),LL),
+    cria_caminho([Destino|Destinos],LL,Lcaminho),
+    append(LR,Lcaminho,Lappend),
+    determina_menos_paragens(EstacaoDestino,Lappend,Linha,L).
 
-comparaLinhas([H|_],NestacoesF,H):-
-	member(H,NestacoesF).
+determina_menos_paragens(EstacaoDestino,[[Destino|Destinos]|LR],LestacaoFinal,L):-
+    findall(X,(liga(Destino,X,_);liga(X,Destino,_)),LL),
+    cria_caminho([Destino|Destinos],LL,Lcaminho),
+    append(LR,Lcaminho,Lappend),
+    determina_menos_paragens(EstacaoDestino,Lappend,LestacaoFinal,L).
 
-comparaLinhas([_|T],NE,_):-
-	comparaLinhas(T,NE,_).
+verificaLinhasEstacao(Estacao,L):-
+    findall(Y,(linha(Y,Estacoes,_), member(Estacao,Estacoes)),L).
 
-imprimeLinha(Linha,EI,EF,LF):-
-	linha(Linha,Estacoes,_),
-	imprimeLinha1(Estacoes,EI,EF,LF).
+comparaNlinhas([H|_],LestF,H):-
+    member(H,LestF),!.
+comparaNlinhas([_|T],LestF,Ne):-
+    comparaNlinhas(T,LestF,Ne).
 
-imprimeLinha1([H|T],H,EF,[H|T1]):-
-	imprimeLinha1(T,H,EF,T1).
-/*
-imprimeLinha1([H|T],EI,H,[H|T]):-
-*/
 
 /* ---- (II) Mais Rápido --- */
 
@@ -363,7 +386,7 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 	    TempoAcumuladoNaViagem is NLocais * 2,
 	    TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,!,
 	    (
-		  (   TempoVisitaAcumulado1 < 300,
+		  (   TempoVisitaAcumulado1 < 200,
 		      planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
 		  );
 		  planoVisitasMeioDia([],_,TempoVisitaAcumulado,[]),!
@@ -403,3 +426,26 @@ planoVisitasDiaInteiro([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T])
  fazer e a estimativa das horas parciais e de termino da visita. Deverão ser fornecidos os locais
  de interesse que se deseja visitar, o local de inicio (que poderá ser um local de interesse ou
  uma estação de metro) e a hora de inicio. --- */
+
+
+aPartirDeUmInteresse:-
+	write('Indique o Local de interesse que se encontra'),nl,
+	read(LocalInteresseInicial),
+	ponto_de_interesse(LocalInteresseInicial,EstacaoInicial,_,_,_,_),
+	write('Indique a sua hora de Inicio'),nl,
+	read(HoraInicio),
+	write('Indique  Minuto de Inicio'),nl,
+	read(MinutoInicio),
+	write('Insira os locais que pretende visitar dentro de Plicas: '),nl,
+	read(Locais1),
+	atomic_list_concat(Locais,',',Locais1),
+	write(HoraInicio),write(EstacaoInicial),write(Locais),write(MinutoInicio).
+
+
+
+
+
+
+
+
+aPartirDoMetro.
