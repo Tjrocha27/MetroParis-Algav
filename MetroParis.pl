@@ -132,7 +132,7 @@ planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
 exeVis(Op):-
 		Op == 1, visitasMeioDia, true,!;
 		Op == 2, visitasDiaInteiro ,true,!;
-		op == 3, partirDeUmLocal,true,!;
+		Op == 3, partirDeUmLocal,true,!;
 		Op == 0, true,!;
 		menu,!.
 
@@ -386,7 +386,7 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 	    TempoAcumuladoNaViagem is NLocais * 2,
 	    TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,!,
 	    (
-		  (   TempoVisitaAcumulado1 < 200,
+		  (   TempoVisitaAcumulado1 < 300,
 		      planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
 		  );
 		  planoVisitasMeioDia([],_,TempoVisitaAcumulado,[]),!
@@ -436,16 +436,112 @@ aPartirDeUmInteresse:-
 	read(HoraInicio),
 	write('Indique  Minuto de Inicio'),nl,
 	read(MinutoInicio),
+	write(HoraInicio),write(':'),write(MinutoInicio),nl,
 	write('Insira os locais que pretende visitar dentro de Plicas: '),nl,
 	read(Locais1),
 	atomic_list_concat(Locais,',',Locais1),
-	write(HoraInicio),write(EstacaoInicial),write(Locais),write(MinutoInicio).
+	indicaCaminho(Locais,EstacaoInicial,_,LR,0,Tfinal),
+	write('Tempo : '), write(Tfinal),nl,
+	trataHoras(HoraInicio,MinutoInicio,Tfinal,HoraFinal,MinFinal),
+	write('Hora: '),write(HoraFinal),write(':'),write(MinFinal),nl,
+	write(LR),nl,
+	length(Locais,Tam),
+	ultimoLocalVisitado(Locais,Interesse,Tam),
+	ponto_de_interesse(Interesse,EstacaoFinal,_,_,_,_),
+	caminho_mais_rapido(EstacaoFinal,EstacaoInicial,CR),
+	write('Caminho de volta '),nl,
+	write(CR),nl,
+	open('file.txt',write, Stream),
+	write(Stream,'Hora Inicial -> '),write(Stream,HoraInicio),write(Stream,':'),write(Stream,MinutoInicio),
+	nl(Stream),
+	write(Stream,'Hora Final -> '),write(Stream,HoraFinal),write(Stream,':'),write(Stream,MinFinal),
+	nl(Stream),
+	write(Stream,'Monumentos Visitados -> '), write(Stream,Locais),
+	nl(Stream),
+	write(Stream,'Caminho para esses locais -> '), write(Stream,LR),
+	nl(Stream),
+	write(Stream,'Caminho de Volta A partir do ultimo Local -> '), write(Stream,CR),
+	close(Stream).
+
+
+indicaCaminho([],_,TE,[],_,TE).
+indicaCaminho([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T],Bool,TF):-
+(
+    (
+       Bool == 0,
+       TempoVisitaAcumulado is 0,
+       Bool1 is Bool + 1,
+       ponto_de_interesse(Local,EstacaoProxima,TempoVisitaLocal,_,_,_),
+       (   (
+	   EstacaoInicial == EstacaoProxima,
+	   LR=['Local de Começo'],
+	   TempoVisitaAcumulado1 is  TempoVisitaLocal + TempoVisitaAcumulado,
+	   indicaCaminho(Resto,EstacaoProxima,TempoVisitaAcumulado1,T,Bool1,TF),!
+       );
+       (
+	   caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),
+	   length(LR,NLocais),
+	   TempoAcumuladoNaViagem is NLocais * 2,
+	   TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
+	   indicaCaminho(Resto,EstacaoProxima,TempoVisitaAcumulado1,T,Bool1,TF),!
+       ))
+    );
+    (
+       ponto_de_interesse(Local,EstacaoProxima,TempoVisitaLocal,_,_,_),
+       caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),
+       length(LR,NLocais),
+       TempoAcumuladoNaViagem is NLocais * 2,
+       TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
+       indicaCaminho(Resto,EstacaoProxima,TempoVisitaAcumulado1,T,Bool,TF),!
+    )
+).
+
+ultimoLocalVisitado([H|_],H,1).
+ultimoLocalVisitado([_|T],I,Tam):-
+	Tam1 is Tam - 1,
+	ultimoLocalVisitado(T,I,Tam1).
 
 
 
+trataHoras(HI,MI,M,Hf,Mf):-
+	Hora is M // 60,
+	Hora_decimal is M / 60,
+	Hora_resto_para_minutos is Hora_decimal-Hora,
+	Minutos is round(Hora_resto_para_minutos * 60),
+	Hf is HI + Hora,
+	Mf is MI + Minutos.
 
 
-
-
-
-aPartirDoMetro.
+aPartirDoMetro:-
+	write('Indique a Estacao onde se encontra'),nl,
+	read(EstacaoInicial),
+	write('Indique a sua hora de Inicio'),nl,
+	read(HoraInicio),
+	write('Indique  Minuto de Inicio'),nl,
+	read(MinutoInicio),
+	write(HoraInicio),write(':'),write(MinutoInicio),nl,
+	write('Insira os locais que pretende visitar dentro de Plicas: '),nl,
+	read(Locais1),
+	atomic_list_concat(Locais,',',Locais1),
+	indicaCaminho(Locais,EstacaoInicial,_,LR,0,Tfinal),
+	write('Tempo : '), write(Tfinal),nl,
+	trataHoras(HoraInicio,MinutoInicio,Tfinal,HoraFinal,MinFinal),
+	write('Hora: '),write(HoraFinal),write(':'),write(MinFinal),nl,
+	write(LR),nl,
+	length(Locais,Tam),
+	ultimoLocalVisitado(Locais,Interesse,Tam),
+	ponto_de_interesse(Interesse,EstacaoFinal,_,_,_,_),
+	caminho_mais_rapido(EstacaoFinal,EstacaoInicial,CR),
+	write('Caminho de volta '),nl,
+	write(CR),nl,
+	open('file.txt',write, Stream),
+	write(Stream,'Hora Inicial -> '),write(Stream,HoraInicio),write(Stream,':'),write(Stream,MinutoInicio),
+	nl(Stream),
+	write(Stream,'Hora Final -> '),write(Stream,HoraFinal),write(Stream,':'),write(Stream,MinFinal),
+	nl(Stream),
+	write(Stream,'Monumentos Visitados -> '), write(Stream,Locais),
+	nl(Stream),
+	write(Stream,'Caminho para esses locais -> '), write(Stream,LR),
+	nl(Stream),
+	write(Stream,'Caminho de Volta A partir do ultimo Local -> '), write(Stream,CR),
+	close(Stream).
