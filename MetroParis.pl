@@ -33,6 +33,9 @@ exeMenu(Op):- Op == 1, carregarBase, menu,!;
 /* --- Caregar Base de Dados --- */
 carregarBase:-	consult('BaseConhecimento.pl').
 
+
+/* --- 2-Permitir a incorporação do conceito de horário de funcionamento, tempos de viagem entre estações e frequências, que podem variar de acordo com os atributos --- */
+
 /* --- Hoarios do metro e afins --- */
 horarios:-get_ano(Ano),
 	  get_mes(Mes),
@@ -52,11 +55,11 @@ linhaFrequencia(Linha):-
 	(Hora > 17, Hora < 21),
 	linha(Linha,Lestacoes,[_|HoraPonta]),
 	get_Num(HoraPonta,HoraPonta1),
-	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de ponta, é de,'), write(HoraPonta1),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
+	write('A linha Nº'), write(Linha), write(', na hora actual, Hora de ponta, tem uma frequência de: '), write(HoraPonta1),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
 
 linhaFrequencia(Linha):-
 	linha(Linha,Lestacoes,[HoraNormal|_]),
-	write('A sua linha Nº'), write(Linha), write(', na hora actual, Hora de Normal, é de,'), write(HoraNormal),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
+	write('A linha Nº'), write(Linha), write(', na hora actual, Hora de Normal, tem uma frequência de: '), write(HoraNormal),write(' minutos'),nl,write('Linha: '),write(Lestacoes),nl.
 
 
 get_Num([H|_],H).
@@ -116,8 +119,10 @@ menorPercursoPe :- write('Insira a Sua estação Actual'),nl,
 
 /* --- Pontos de interesse e Visitas --- */
 
-pontosInteresse.
-
+pontosInteresse:-
+		findall(X,ponto_de_interesse(X,_,_,_,_,_),LL),
+		write(LL),nl,nl.
+		
 planearVisitas:-write(' ******** Planear Visitas ******* '),nl,
 	         write(' *				       * '),nl,
 		 write(' * 1- Visitas de meio dia(5 horas)     * '),nl,
@@ -283,7 +288,6 @@ cria_caminho(Estacoes,[Destino|Destinos],LR):-
 cria_caminho(Estacoes,[Destino|Destinos],[[Destino|Estacoes]|LR]):-
 	cria_caminho(Estacoes,Destinos,LR).
 
-/* --- 2-Permitir a incorporação do conceito de horário de funcionamento, tempos de viagem entre estações e frequências, que podem variar de acordo com os atributos --- */
 
 /* --- 3-Dada a hora de comparência numa dada estação determinar o trajeto para chegar a outra estação de acordo com diferentes critérios: --- */
 
@@ -352,10 +356,6 @@ caminho_menor_perc_pe(EstacaoInicial,EstacaoFinal,LR):-
 	cria_caminho([EstacaoInicial],LEstacaoDirectas,LC),
 	determina_caminho_curto(EstacaoFinal,LC,LR).
 
-
-/* --- 4-Permitir a modelação de alguns pontos de interesse turísticos com a indicação de atributos
- como horário de funcionamento (dias e horas), tempo estimado de visita, localização
- (estação ou estações de metro mais próximas) --- */
 
 /* --- 5-Planear visitas de meio dia (5 horas) ou de dia inteiro (8 horas). Recebe a indicação dos
 locais que se pretendem visitar e elabora um plano de visita usando o
