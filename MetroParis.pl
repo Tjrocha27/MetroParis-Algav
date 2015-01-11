@@ -60,13 +60,17 @@ linhaFrequencia(Linha):-
 
 
 get_Num([H|_],H).
-
+/*
+get_prox([],[],_).
 get_prox([H|T],H,_):-
 	T==[].
 get_prox([H|_],H,2).
 get_prox([_|T],_,Cont):-
 	Cont1 is Cont +1,
 	get_prox(T,_,Cont1).
+*/
+get_prox([],[],_).
+get_prox([H|_],H,_).
 
 /* --- Calcular os diferentes Caminhos --- */
 cacularTrajetos:-write(' ******** Calcular o meu Trajeto ******* '),nl,
@@ -152,18 +156,29 @@ escrevePlano(_,[]).
 escrevePlano([H|T],[H1|T1]):-
 		write('Para visitar o local:'),write(H),
 		write('siga este caminho:'),nl,
-		write(H1), nl,
+		write(H1), nl,nl,
 		escrevePlano(T,T1).
 
 
 
 
 visitasDiaInteiro:-
-		write('Locais que pretende visitar: '),nl,
-		read(Locais),
-		planoVisitasDiaInteiro(Locais,Plano),
-		write('O Plano é o seguinte:'),nl,
-		write('teste'),nl,nl.
+		write('Insira um local de cada vez(Para terminar vazio): '),nl,
+		read(Locais1),
+	        atomic_list_concat(Locais,',',Locais1),
+		write(Locais),nl,
+		write('Insira a Sua estação Actual: '),nl,
+		read(EA),
+		get_Num(Locais,Primeiro),
+		ponto_de_interesse(Primeiro,EstacaoProxima,TV,_,_,_),
+		% write(TempoVisitaLocal),
+		caminho_mais_rapido(EA,EstacaoProxima,LR),
+		length(LR,NLocais),
+		TempoAcumuladoNaViagem is NLocais * 2,
+		TempoAcumuladoNaViagem1 is TempoAcumuladoNaViagem + TV,
+		planoVisitasDiaInteiro(Locais,EA,TempoAcumuladoNaViagem1,Plano),!,
+		escrevePlano(Locais,Plano).
+
 
 
 /* teste planear visitas
@@ -344,7 +359,7 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 	length(CR,NLocais),
 	TempoAcumuladoNaViagem is NLocais * 2,
 	TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
-	(	TempoVisitaAcumulado1 < 360,
+	(	TempoVisitaAcumulado1 < 300,
 		planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T);
 	        planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[])
 	).
@@ -352,6 +367,31 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 
 planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]):-
 	write('Tempo gasto de : '),write(TempoVisitaAcumulado1),write(' Minutos'),nl.
+
+
+
+planoVisitasDiaInteiro([],_,TempoVisitaAcumulado1,[]):-
+	write('Tempo gasto de : '),write(TempoVisitaAcumulado1),write(' Minutos'),nl.
+
+planoVisitasDiaInteiro([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
+	ponto_de_interesse(Local,EstacaoProxima,_,_,_,_),!,
+	caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),!,
+	get_prox(Resto,Segundo,1),!,
+	(   (   Segundo \== [],
+	    ponto_de_interesse(Segundo,EstacaoProximaSegundo,TempoVisitaLocal,_,_,_),
+	    caminho_mais_rapido(EstacaoProxima,EstacaoProximaSegundo,CR),
+	    length(CR,NLocais),
+	    TempoAcumuladoNaViagem is NLocais * 2,
+	    TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,!,
+	    (
+		  (   TempoVisitaAcumulado1 < 200,
+		      planoVisitasDiaInteiro(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
+		  );
+		  planoVisitasDiaInteiro([],_,TempoVisitaAcumulado1,[]),!
+	     )
+	);
+	planoVisitasDiaInteiro(Resto,EstacaoProxima,TempoVisitaAcumulado,T) ).
+
 
 
 
