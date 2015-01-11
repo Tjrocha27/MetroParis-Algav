@@ -349,6 +349,13 @@ determina_caminho_curto(EstacaoDestino,[[Destino|Destinos]|LR],L):-
 
 /* ---- (III) Menor Percurso a Pé --- */
 
+/*
+Na construçao de cada trajeto, quando ha mudança de linha acumula-se a distancia a pé numa variavel
+Cada lista de trajeto é composta pela [distancia total a pé,trajeto].
+Só fazer um sort pela distancia total a pé
+*/
+
+
 caminho_menor_perc_pe(EstacaoInicial,EstacaoFinal,LR):-
 	estacao(EstacaoInicial),
 	estacao(EstacaoFinal),
