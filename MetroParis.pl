@@ -366,7 +366,7 @@ planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
 		  (   TempoVisitaAcumulado1 < 300,
 		      planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
 		  );
-		  planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]),!
+		  planoVisitasMeioDia([],_,TempoVisitaAcumulado,[]),!
 	     )
 	);
 	planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado,T) ).
@@ -390,7 +390,7 @@ planoVisitasDiaInteiro([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T])
 		  (   TempoVisitaAcumulado1 < 480,
 		      planoVisitasDiaInteiro(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
 		  );
-		  planoVisitasDiaInteiro([],_,TempoVisitaAcumulado1,[]),!
+		  planoVisitasDiaInteiro([],_,TempoVisitaAcumulado,[]),!
 	     )
 	);
 	planoVisitasDiaInteiro(Resto,EstacaoProxima,TempoVisitaAcumulado,T) ).
