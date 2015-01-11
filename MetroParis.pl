@@ -349,24 +349,27 @@ metro como meio de transporte.--- */
  Senao continuo a procurar na lista e volto a fazer o mesmo
 */
 
-planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
-	ponto_de_interesse(Local,EstacaoProxima,_,_,_,_),
-	get_prox(Resto,Segundo,1),
-	ponto_de_interesse(Segundo,EstacaoProximaSegundo,TempoVisitaLocal,_,_,_),
-	% write(TempoVisitaLocal),
-	caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),
-	caminho_mais_rapido(EstacaoProxima,EstacaoProximaSegundo,CR),
-	length(CR,NLocais),
-	TempoAcumuladoNaViagem is NLocais * 2,
-	TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,
-	(	TempoVisitaAcumulado1 < 300,
-		planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T);
-	        planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[])
-	).
-
-
 planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]):-
 	write('Tempo gasto de : '),write(TempoVisitaAcumulado1),write(' Minutos'),nl.
+
+planoVisitasMeioDia([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T]):-
+	ponto_de_interesse(Local,EstacaoProxima,_,_,_,_),!,
+	caminho_mais_rapido(EstacaoInicial,EstacaoProxima,LR),!,
+	get_prox(Resto,Segundo,1),!,
+	(   (   Segundo \== [],
+	    ponto_de_interesse(Segundo,EstacaoProximaSegundo,TempoVisitaLocal,_,_,_),
+	    caminho_mais_rapido(EstacaoProxima,EstacaoProximaSegundo,CR),
+	    length(CR,NLocais),
+	    TempoAcumuladoNaViagem is NLocais * 2,
+	    TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,!,
+	    (
+		  (   TempoVisitaAcumulado1 < 300,
+		      planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
+		  );
+		  planoVisitasMeioDia([],_,TempoVisitaAcumulado1,[]),!
+	     )
+	);
+	planoVisitasMeioDia(Resto,EstacaoProxima,TempoVisitaAcumulado,T) ).
 
 
 
@@ -384,7 +387,7 @@ planoVisitasDiaInteiro([Local|Resto],EstacaoInicial,TempoVisitaAcumulado,[LR|T])
 	    TempoAcumuladoNaViagem is NLocais * 2,
 	    TempoVisitaAcumulado1 is TempoAcumuladoNaViagem + TempoVisitaLocal + TempoVisitaAcumulado,!,
 	    (
-		  (   TempoVisitaAcumulado1 < 200,
+		  (   TempoVisitaAcumulado1 < 480,
 		      planoVisitasDiaInteiro(Resto,EstacaoProxima,TempoVisitaAcumulado1,T),!
 		  );
 		  planoVisitasDiaInteiro([],_,TempoVisitaAcumulado1,[]),!
